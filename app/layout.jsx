@@ -20,7 +20,7 @@ const nunitoSans = Nunito_Sans({ subsets: ["latin"] });
 export default function RootLayout({ children }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className="border border-[purple]">
+      <body>
         <Providers>
           <Nav />
           {children}
