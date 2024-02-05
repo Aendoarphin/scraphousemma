@@ -22,9 +22,11 @@ export default function RootLayout({ children }) {
     <html lang="en" suppressHydrationWarning>
       <body>
         <Providers>
-          <Nav />
-          {children}
-          <Footer />
+          <div className="dark:bg-black dark:text-white bg-white text-black">
+            <Nav />
+            {children}
+            <Footer />
+          </div>
         </Providers>
       </body>
     </html>
