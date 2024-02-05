@@ -16,6 +16,9 @@ module.exports = {
     extend: {
       boxShadow: {
         'inner-soft': 'inset 0 2px 6px 0 rgba(0, 0, 0, 0.1)'
+      },
+      fontWeight: {
+        'heading': 'bold'
       }
     }
   },
