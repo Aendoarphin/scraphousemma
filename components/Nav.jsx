@@ -43,16 +43,16 @@ const Nav = () => {
     >
       <div
         className={`transition-all ${
-          isOpen ? "h-20 opacity-100" : "h-0 opacity-0"
+          isOpen ? "h-14 opacity-100" : "h-0 opacity-0"
         }`}
       >
         <div className="border-b border-black border-opacity-5 dark:border-white dark:border-opacity-5 flex flex-row justify-evenly">
           {isOpen && (
             <>
-              <a href="" className="p-2">
+              <a href="" className="p-4">
                 Dashboard
               </a>
-              <a href="" className="p-2">
+              <a href="" className="p-4">
                 About
               </a>
             </>
