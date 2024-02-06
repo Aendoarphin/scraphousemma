@@ -16,10 +16,10 @@ export default function ThemeSwitch() {
   )
 
   if (resolvedTheme === 'dark') {
-    return <FontAwesomeIcon icon={faMoon} onClick={() => setTheme('light')} />
+    return <FontAwesomeIcon className="cursor-pointer" icon={faMoon} onClick={() => setTheme('light')} />
   }
 
   if (resolvedTheme === 'light') {
-    return <FontAwesomeIcon icon={faSun} onClick={() => setTheme('dark')} />
+    return <FontAwesomeIcon className="cursor-pointer" icon={faSun} onClick={() => setTheme('dark')} />
   }
 }
