@@ -34,7 +34,7 @@ export default function Home() {
           className="blur-sm absolute size-full object-left object-cover grayscale -z-10 opacity-5"
       />
       <div className="text-sm border border-main h-screen p-8 pt-24 text-center flex flex-wrap justify-center gap-6">
-        <div className="px-8 border border-[green] size-full flex flex-col justify-evenly">
+        <div className="px-8 border border-[green] size-full flex flex-col justify-center gap-20">
           <div className="flex flex-col gap-8">
             <h1 className="font-heading text-4xl">Welcome</h1>
             <p>
@@ -44,7 +44,7 @@ export default function Home() {
           </div>
           <div className="flex flex-col gap-8">
             <h1 className=" font-heading text-4xl">Features</h1>
-            <div className="flex flex-col gap-6">
+            <div className="flex flex-col gap-10">
               <Feature icon={faNewspaper} text="Stay up to date with the latest headlines from multiple sources" />
               <Feature icon={faTrophy} text="Explore the fighter directory and view the latest rankings" />
               <Feature icon={faCalendar} text="Stay ahead with our event guide and never miss a moment" />
@@ -60,7 +60,7 @@ export default function Home() {
           <div className="flex flex-col gap-8">
             <h1 className="font-heading text-4xl">Promotions</h1>
             <p>Get information from the most popular MMA fight promotions</p>
-            <div className="flex flex-col gap-4">
+            <div className="flex flex-col lg:flex-row lg:mx-auto gap-10">
               <Promotion alt="ufc logo" src={ufc} />
               <Promotion alt="pfl logo" src={pfl} />
               <Promotion alt="bellator logo" src={bellator} />

@@ -6,6 +6,8 @@ import { faBars, faUser } from "@fortawesome/free-solid-svg-icons";
 import { useState, useEffect } from "react";
 // Components
 import ThemeToggle from "./ThemeToggle";
+//Next
+import Link from "next/link";
 
 const Nav = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -49,23 +51,23 @@ const Nav = () => {
         <div className="border-b border-black border-opacity-5 dark:border-white dark:border-opacity-5 flex flex-row justify-evenly">
           {isOpen && (
             <>
-              <a href="" className="p-4">
+              <Link href="/dashboard" className="p-4">
                 Dashboard
-              </a>
-              <a href="" className="p-4">
+              </Link>
+              <Link href="/about" className="p-4">
                 About
-              </a>
+              </Link>
             </>
           )}
         </div>
       </div>
       <div className="px-8 py-4 flex items-center justify-between">
-        <a id="brand" className="brand text-6xl px-4 cursor-pointer">
+        <Link id="brand" href="/" className="brand text-6xl px-4 cursor-pointer">
           S<span className="hidden lg:inline">crap</span>
           <span className="text-main">
             H<span className="hidden lg:inline">ouse</span>
           </span>
-        </a>
+        </Link>
         <div id="links" className="flex flex-wrap items-center gap-6 text-sm">
           <FontAwesomeIcon
             icon={faBars}
