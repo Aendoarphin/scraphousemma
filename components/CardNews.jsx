@@ -1,10 +1,10 @@
 import Image from "next/image";
 import Link from "next/link";
 
-const CardNews = () => {
+const CardNews = (props) => {
 	return (
 		<>
-			<div className="flex flex-row w-full text-white rounded-md overflow-clip">
+			<div className="col-span-2 flex flex-row w-full text-white rounded-md overflow-clip">
 				<Image
 					src={"/images/NewsPreview.jpg"}
 					width={100}
@@ -12,18 +12,18 @@ const CardNews = () => {
 					alt="picture of news headline"
 					className=" self-center h-full object-cover"
 				/>
-				<div className="bg-main p-4">
+				<div className="bg-main p-4 size-full">
 					<p className="text-xs">Jan 4, 2023 | Source</p>
 					<Link
 						href="/dashboard/news/article"
-						className="font-bold text-md max-w-full  hover:underline"
+						className="font-heading text-md max-w-full  hover:underline"
 					>
-						{"Jones to fight Rose Namajunas"}
+						{props.headline}
 					</Link>
 				</div>
 			</div>
 		</>
 	);
 };
-
+// working on dashboard/news
 export default CardNews;
