@@ -15,17 +15,15 @@ config.autoAddCss = false;
 const nunitoSans = Nunito_Sans({ subsets: ["latin"] });
 
 export default function RootLayout({ children }) {
-  return (
-    <html lang="en" suppressHydrationWarning>
-      <body className={`${nunitoSans.className}`}>
-        <Providers>
-          <div >
-            <Nav />
-            {children}
-            <Footer />
-          </div>
-        </Providers>
-      </body>
-    </html>
-  );
+	return (
+		<html lang="en" suppressHydrationWarning>
+			<body className={`${nunitoSans.className}`}>
+				<Providers>
+					<Nav />
+					{children}
+					<Footer />
+				</Providers>
+			</body>
+		</html>
+	);
 }

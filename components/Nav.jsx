@@ -26,6 +26,7 @@ const Nav = () => {
       const isScrollingDown = currentScrollPos < prevScrollPos;
       setPrevScrollPos(currentScrollPos);
       setVisible(isScrollingDown || currentScrollPos < 10);
+      setIsOpen(false);
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -51,10 +52,10 @@ const Nav = () => {
         <div className="border-b border-black border-opacity-5 dark:border-white dark:border-opacity-5 flex flex-row justify-evenly">
           {isOpen && (
             <>
-              <Link href="/dashboard" className="p-4">
+              <Link href="/dashboard" className="p-4" onClick={handleMenuClick}>
                 Dashboard
               </Link>
-              <Link href="/about" className="p-4">
+              <Link href="/about" className="p-4" onClick={handleMenuClick}>
                 About
               </Link>
             </>
@@ -62,7 +63,7 @@ const Nav = () => {
         </div>
       </div>
       <div className="px-8 py-4 flex items-center justify-between">
-        <Link id="brand" href="/" className="brand text-6xl px-4 cursor-pointer">
+        <Link id="brand" href="/" onClick={handleMenuClick} className="brand text-6xl px-4 cursor-pointer">
           S<span className="hidden lg:inline">crap</span>
           <span className="text-main">
             H<span className="hidden lg:inline">ouse</span>

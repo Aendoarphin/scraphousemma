@@ -12,7 +12,7 @@ module.exports = {
       'black': '#101010',
       'white': '#e3e3e3',
       'dark-grey': '#1a1a1a',
-      'void': '#000000'
+      'light-grey': '#cccccc',
     },
     extend: {
       boxShadow: {
