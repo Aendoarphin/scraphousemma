@@ -5,8 +5,8 @@ import "./globals.scss";
 // Light/Dark Mode
 import { Providers } from "./providers";
 // Components
-import Nav from "@/components/Nav";
-import Footer from "@/components/Footer";
+import Nav from "@/components/layout/Nav";
+import Footer from "@/components/layout/Footer";
 // Font Awesome config
 import "@fortawesome/fontawesome-svg-core/styles.css";
 import { config } from "@fortawesome/fontawesome-svg-core";

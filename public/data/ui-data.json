@@ -1,0 +1,22 @@
+{
+  "sections": [
+    {
+      "id": "news",
+      "title": "News",
+      "description": "Stay updated with the latest news and headlines.",
+      "route": "dashboard/news"
+    },
+    {
+      "id": "rankings",
+      "title": "Rankings",
+      "description": "Check out the latest rankings.",
+      "route": "dashboard/rankings"
+    },
+    {
+      "id": "schedule",
+      "title": "Schedule",
+      "description": "View upcoming events.",
+      "route": "dashboard/schedule"
+    }
+  ]
+}

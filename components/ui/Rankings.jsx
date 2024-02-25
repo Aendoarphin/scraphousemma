@@ -1,4 +1,4 @@
-const CardRankings = () => {
+const Rankings = () => {
   return (
     <>
       <div className=" bg-light-grey rounded-lg p-6 shadow-md w-full dark:text-white dark:bg-dark-grey">
@@ -8,4 +8,4 @@ const CardRankings = () => {
   )
 }
 
-export default CardRankings
+export default Rankings

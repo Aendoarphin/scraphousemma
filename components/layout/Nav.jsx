@@ -5,7 +5,7 @@ import { faBars, faUser } from "@fortawesome/free-solid-svg-icons";
 // Hooks
 import { useState, useEffect } from "react";
 // Components
-import ThemeToggle from "./ThemeToggle";
+import ThemeToggle from "../util/ThemeToggle";
 //Next
 import Link from "next/link";
 
@@ -15,8 +15,10 @@ const Nav = () => {
   const [visible, setVisible] = useState(true);
 
   // Expand/collapse links
-  const handleMenuClick = () => {
-    setIsOpen(!isOpen);
+  const handleMenuClick = (id = "") => {
+    if (id === "brand") {
+      setIsOpen(false);
+    } else setIsOpen(!isOpen)
   };
 
   // Show/hide navbar on scroll
@@ -63,7 +65,7 @@ const Nav = () => {
         </div>
       </div>
       <div className="px-8 py-4 flex items-center justify-between">
-        <Link id="brand" href="/" onClick={handleMenuClick} className="brand text-6xl px-4 cursor-pointer">
+        <Link id="brand" href="/" onClick={() => handleMenuClick("brand")} className="brand text-6xl px-4 cursor-pointer">
           S<span className="hidden lg:inline">crap</span>
           <span className="text-main">
             H<span className="hidden lg:inline">ouse</span>

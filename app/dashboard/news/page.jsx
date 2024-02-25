@@ -1,4 +1,4 @@
-import CardNews from "@/components/CardNews";
+import CardNews from "@/components/ui/HeaderItem";
 
 const News = () => {
   return (

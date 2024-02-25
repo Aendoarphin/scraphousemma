@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 
-const CardNews = (props) => {
+const ContentGrid = (props) => {
 	return (
 		<>
 			<div className="col-span-2 flex flex-row w-full text-white rounded-md overflow-clip">
@@ -25,5 +25,4 @@ const CardNews = (props) => {
 		</>
 	);
 };
-// working on dashboard/news
-export default CardNews;
+export default ContentGrid;
