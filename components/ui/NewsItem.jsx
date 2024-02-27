@@ -5,29 +5,18 @@ const NewsItem = (props) => {
 
   return (
     <>
-      <div className=" flex flex-row w-full items text-white rounded-md overflow-hidden hover:scale-[102%] ease-in transition-transform">
-        {/* Headline */}
-        <div className="bg-light-grey text-black p-4 w-full truncate dark:bg-dark-grey dark:text-white">
-          <p className="text-xs overflow-hidden">
-            {props.source} | {props.published}
-          </p>
-          <Link
-            href="/dashboard/news/article"
-            className="font-heading text-md max-w-full hover:underline"
-          >
-            {props.headline}
-          </Link>
+      <div className="bg-dark-grey rounded-md border border-main flex flex-row h-24 sm:h-28 md:h-32 items-center overflow-hidden">
+        <div className="p-4 w-full truncate">
+          <p className="text-xs truncate">{props.published} | {props.source}</p>
+          <h1 className="font-heading text-lg line-clamp-1 whitespace-normal">{props.name}</h1>
         </div>
-				{/* Thumbnail */}
-        <div className="w-1/2 max-h-10 min-h-8">
-          <Image
+        <Image
             src={props.image}
-						width={50}
-						height={50}
-            alt="picture of news headline"
-            className="self-center w-full object-cover"
+            width={500}
+            height={500}
+            alt="news article thumbnail"
+            className="h-24 sm:h-28 md:h-32 max-w-24 sm:max-w-28 md:max-w-32 object-cover"
           />
-        </div>
       </div>
     </>
   );

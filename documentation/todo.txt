@@ -1,1 +1,1 @@
-finish news component 2/25
+responsive news page

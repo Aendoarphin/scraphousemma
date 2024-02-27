@@ -1,27 +1,24 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
 @font-face {
   font-family: "ktn";
-  src: url('../public/fonts/kill-the-noise.otf');
+  src: url("../public/fonts/kill-the-noise.otf");
 }
-
 .brand {
   font-family: ktn;
 }
 
-[class='dark'] {
+[class=dark] {
   color: #e3e3e3;
   background-color: #101010;
 }
 
-[class='light'] {
+[class=light] {
   color: #101010;
   background-color: #e3e3e3;
 }
 
 .text-shadow {
   text-shadow: 0px 0px 4px black;
-}
-
+}/*# sourceMappingURL=globals.css.map */

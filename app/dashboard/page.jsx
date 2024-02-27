@@ -1,8 +1,8 @@
 // Data
-import uiData from "@/public/data/ui-data.json"
+import { DashboardHomePanels } from "@/constants";
 
-const Dashboard = () => {
-  const sections = uiData.sections || []
+const DashboardHome = () => {
+  const sections = DashboardHomePanels || []
 
   const Widget = (label) => {
     return (
@@ -21,5 +21,5 @@ const Dashboard = () => {
     </>
   );
 };
-// Arranging the dashboard
-export default Dashboard;
+
+export default DashboardHome;
