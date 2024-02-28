@@ -5,7 +5,7 @@ const NewsItem = (props) => {
 
   return (
     <>
-      <div className="bg-dark-grey rounded-md border border-main flex flex-row h-24 sm:h-28 md:h-32 items-center overflow-hidden">
+      <div className="bg-dark-grey rounded-md flex flex-row h-24 sm:h-28 md:h-32 items-center overflow-hidden">
         <div className="p-4 w-full truncate">
           <p className="text-xs truncate">{props.published} | {props.source}</p>
           <h1 className="font-heading text-lg line-clamp-1 whitespace-normal">{props.name}</h1>
