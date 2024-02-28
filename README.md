@@ -1,5 +1,5 @@
 # ScrapHouse: An MMA Media Platform
-The current key objective for this web app is to centralize MMA content while maintaining aesthetics and simple navigation.  
+The key objective for this web app is to centralize MMA content while maintaining aesthetics and simple navigation.  
 
 This project is currently unreleased and is undergoing development. 
   
@@ -7,14 +7,19 @@ More exciting features will be considered in the future. Please feel free to con
 
 ## Features
 Users can view the following:
-1. News from various sources
-2. Fighter rankings from the following promotions:
+1. 📰 News from various sources
+    - Candidate data sources:  
+        - SportsDataIO MMA API
+        - RapidAPI MMA/UFC News API
+        - News API
+2. 🏆 Fighter rankings from the following promotions:
     - UFC
     - Bellator
     - PFL
     - ONE FC
-3. Upcoming events
-    - Reminders can also be sent
+3. 📅 Upcoming events
+    - User can also receive notifications
+
 
 ## Technology Stack
 
