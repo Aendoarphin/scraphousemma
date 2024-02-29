@@ -26,6 +26,6 @@ Users can view the following:
 - **Frontend Framework:** Next.js
 - **Styling:** Tailwind CSS
 - **State Management:** React Hooks
-- **Backend:** Node.js (Express)
+- **Backend:** Node.js (Express or Next server)
 - **Database:** MongoDB
-- **Deployment:** Vercel
+- **Deployment:** Vercel or Other
