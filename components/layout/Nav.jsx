@@ -52,6 +52,7 @@ const Nav = () => {
 
 	return (
 		<div
+			id="nav"
 			ref={navRef}
 			className={`z-10 fixed top-0 right-0 left-0 ${
 				visible

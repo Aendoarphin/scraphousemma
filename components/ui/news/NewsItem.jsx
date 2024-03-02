@@ -7,7 +7,7 @@ const NewsItem = (props) => {
 			<div className="bg-light-grey dark:bg-dark-grey rounded-md flex flex-row h-24 sm:h-28 md:h-32 items-center overflow-hidden hover:scale-[102%] ease-in transition-transform">
 				<div className="p-4 w-full truncate">
 					<p className="text-xs truncate">
-						{props.published} | {props.source}
+						{props.publishedDate} | {props.source}
 					</p>
 					<h1 className="font-heading text-lg line-clamp-1 whitespace-normal">
 						{props.name}

@@ -1,8 +1,8 @@
 // Data
-import { DashboardHomePanels } from "@/constants";
+import { dashboardHomePanels } from "@/constants";
 
 const DashboardHome = () => {
-	const sections = DashboardHomePanels || [];
+	const sections = dashboardHomePanels || [];
 
 	const Widget = (label) => {
 		return (

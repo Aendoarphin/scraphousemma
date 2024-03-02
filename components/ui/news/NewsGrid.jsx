@@ -1,14 +1,14 @@
 import Image from "next/image"
 import Link from "next/link"
 
-const NewsGrid = (params) => {
+const NewsGrid = (props) => {
   return (
     <>
       <div
 				id="top-news"
 				className="md:border md:border-main lg:min-h-[30rem] md:min-h-[24rem] sm:min-h-[20rem] min-h-[16rem] grid grid-rows-12 grid-cols-2 gap-4"
 			>
-				{params.topNews.map((story, index) => (
+				{props.topNews.map((story, index) => (
 					<Link
 						key={index}
 						href={`news/${story.articleId}`}
