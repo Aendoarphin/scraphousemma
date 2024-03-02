@@ -61,7 +61,7 @@ const News = () => {
 			<div className="font-heading text-xl">Other News</div>
 			<div id="news-item-list" className="flex flex-col gap-4">
 				{groupStories[currentPage].map((item, index) => (
-					<Link key={index} href={`news/${item.articleId}`}>
+					<Link key={index} href={`news/${item.articleId}/${item.name}/${item.publishedDate}/${item.source}/${item.image}`}>
 						<NewsItem
 							name={item.name}
 							publishedDate={item.publishedDate}
