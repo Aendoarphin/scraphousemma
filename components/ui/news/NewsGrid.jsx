@@ -8,10 +8,10 @@ const NewsGrid = (props) => {
 				id="top-news"
 				className="md:border md:border-main lg:min-h-[30rem] md:min-h-[24rem] sm:min-h-[20rem] min-h-[16rem] grid grid-rows-12 grid-cols-2 gap-4"
 			>
-				{props.topNews.map((story, index) => (
+				{props.topNews.map((item, index) => (
 					<Link
 						key={index}
-						href={`news/${story.articleId}`}
+						href={`news/${item.articleId}/${item.name}/${item.publishedDate}/${item.source}/${item.image}`}
 						className={`flex flex-col justify-end bg-light-grey rounded-md p-4 ${
 							index === 0
 								? "col-start-1 row-span-full"
@@ -22,12 +22,12 @@ const NewsGrid = (props) => {
 					>
 						<Image
 							alt={`top story image ${index + 1}`}
-							src={story.image}
+							src={item.image}
 							fill={true}
 							className="absolute inset-0 object-cover object-top rounded-md brightness-75"
 						/>
 						<p className="relative text-white font-heading line-clamp-3 text-shadow">
-							{story.name}
+							{item.name}
 						</p>
 					</Link>
 				))}
