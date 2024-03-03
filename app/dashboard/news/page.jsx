@@ -57,7 +57,7 @@ const News = () => {
 			<div className="font-heading col-span-2 text-xl">
 				<FontAwesomeIcon icon={faNewspaper} /> Top News
 			</div>
-			<NewsGrid topNews={topStories} />
+			<NewsGrid topNews={topStories}/>
 			<div className="font-heading text-xl">Other News</div>
 			<div id="news-item-list" className="flex flex-col gap-4">
 				{groupStories[currentPage].map((item, index) => (

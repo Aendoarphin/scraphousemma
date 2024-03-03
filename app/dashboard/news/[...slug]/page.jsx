@@ -39,8 +39,8 @@ const Article = ({ params }) => {
         <h1 className="font-heading text-4xl whitespace-normal overflow-hidden break-words dark:text-white">
           {name}
         </h1>
-        <div className='flex justify-center'>
-          <Image src={media} alt="article media" width={500} height={500}/>
+        <div className='flex justify-center rounded-md overflow-hidden'>
+          <Image src={media} alt="article media" width={500} height={500} className=' size-full'/>
         </div>
         {/* Render sanitized HTML */}
         <div dangerouslySetInnerHTML={{ __html: sanitizedHtml }} />

@@ -6,19 +6,19 @@ const NewsGrid = (props) => {
     <>
       <div
 				id="top-news"
-				className="md:border md:border-main lg:min-h-[30rem] md:min-h-[24rem] sm:min-h-[20rem] min-h-[16rem] grid grid-rows-12 grid-cols-2 gap-4"
+				className="lg:min-h-[30rem] md:min-h-[24rem] sm:min-h-[20rem] min-h-[16rem] grid grid-rows-12 grid-cols-2 gap-4"
 			>
 				{props.topNews.map((item, index) => (
 					<Link
 						key={index}
 						href={`news/${item.articleId}/${item.name}/${item.publishedDate}/${item.source}/${item.image}`}
-						className={`flex flex-col justify-end bg-light-grey rounded-md p-4 ${
+						className={`flex flex-col justify-end rounded-md p-4 ${
 							index === 0
-								? "col-start-1 row-span-full"
+								? "col-start-1 row-span-full md:text-2xl"
 								: index === 1
-								? "row-start-1 row-span-6 text-md"
-								: "row-start-7 row-span-6 text-md"
-						} hover:scale-[102%] ease-in transition-transform relative lg:text-xl`}
+								? "row-start-1 row-span-6 text-xs sm:text-base"
+								: "row-start-7 row-span-6 text-xs sm:text-base"
+						} hover:scale-[102%] ease-in transition-transform relative`}
 					>
 						<Image
 							alt={`top story image ${index + 1}`}
