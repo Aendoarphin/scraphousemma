@@ -150,6 +150,40 @@ export const sampleNewsData = [
 
 export const filterItems = {
 	dateAdded: "Date Added",
-	category: "Category"
-}
+	category: "Category",
+};
 
+export const savedItems = {
+	articles: [
+		{
+			articleName: "Jones  vs. Miocic Set For April 2024",
+		},
+		{
+			articleName: "Jones  vs. Miocic Set For April 2024",
+		},
+		{
+			articleName: "Jones  vs. Miocic Set For April 2024",
+		},
+		{
+			articleName: "Jones  vs. Miocic Set For April 2024",
+		},
+		{
+			articleName: "Jones  vs. Miocic Set For April 2024",
+		},
+		{
+			articleName: "Jones  vs. Miocic Set For April 2024",
+		},
+	],
+	fighters: [
+		{
+			name: "Islam Makhachev",
+			image: "/images/figtherIslamMakhachev.png",
+		},
+	],
+	events: [
+		{
+			name: "UFC 300",
+			location: "T-Mobile Arena in Las Vegas, NV",
+		},
+	],
+};
