@@ -46,7 +46,7 @@ export default function Home() {
           <div className="flex flex-col gap-8">
             <h1 className="font-heading text-4xl">Welcome</h1>
             <p>
-              Dive into with ScrapHouse, your go-to platform offering insights
+              Dive in with ScrapHouse, your go-to platform offering insights
               into the spectacular world of mixed martial arts
             </p>
           </div>

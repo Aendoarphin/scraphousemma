@@ -148,3 +148,8 @@ export const sampleNewsData = [
 	},
 ];
 
+export const filterItems = {
+	dateAdded: "Date Added",
+	category: "Category"
+}
+
