@@ -20,7 +20,7 @@ const ItemFilter = (props) => {
                 className="self-center py-4 font-heading rounded-md"
                 onClick={handleFilterClick}
             >
-                <div id="current-value">Filter By {currentFilterValue} <FontAwesomeIcon icon={faFilter}/></div>
+                <div id="current-value">{currentFilterValue} <FontAwesomeIcon icon={faFilter}/></div>
             </button>
             {filterIsOpen && (
                 <div className=" absolute flex flex-col gap-2 p-2 bg-light-grey dark:bg-dark-grey rounded-md dark:shadow-black shadow-md translate-y-12">
