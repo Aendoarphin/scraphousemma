@@ -1,20 +1,27 @@
 "use client";
+import Form from "@/components/ui/Form";
 import SavedItems from "@/components/ui/dashboard/SavedItems";
-import { faUserAlt, faUserLargeSlash } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import User from "@/components/ui/dashboard/User";
 
 const DashboardHome = () => {
-  return (
-    <>
-      <h1 className="text-xl font-heading">[User]&apos;s Dashboard</h1>
-      <div className="flex flex-col lg:flex-row justify-center gap-4">
-        <div className="flex flex-col h-full min-w-96 w-full bg-dark-grey rounded-md p-4">
-          <FontAwesomeIcon icon={faUser}/>
-        </div>
-        <SavedItems />
-      </div>
-    </>
-  );
+	return (
+		<>
+			<div className="h-full flex flex-col justify-center gap-4 items-start">
+				{false ? (
+					<div className="size-full">
+						<User />
+						<SavedItems />
+					</div>
+				) : (
+					<div className="flex flex-row p-4 border size-full items-center justify-evenly">
+						<Form type={"login"} />
+						<p>OR</p>
+						<Form type={"register"} />
+					</div>
+				)}
+			</div>
+		</>
+	);
 };
 
 export default DashboardHome;

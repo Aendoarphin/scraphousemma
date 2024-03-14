@@ -105,7 +105,7 @@ export default function Home() {
               Discover the thrill of MMA with ScrapHouse. Sign up now for
               exclusive content, live updates, and more!
             </p>
-            <Button />
+            <Button text={"Get Started"} />
           </div>
         </div>
       </div>

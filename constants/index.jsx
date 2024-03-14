@@ -169,5 +169,69 @@ export const savedItems = {
 			name: "UFC 300",
 			location: "T-Mobile Arena in Las Vegas, NV",
 		},
-	]
+		{
+			type: "event",
+			name: "UFC 299",
+			location: "Kaseya Center in Miami, FL",
+		},
+		{
+			type: "event",
+			name: "ONE Friday Fights 55",
+			location: "Lumpinee Boxing Stadium in Bangkok, Thailand",
+		},
+	],
 };
+
+export const userAccountOptions = {
+	changeEmail: "Change Email",
+	changePassword: "Change Password",
+	logout: "Logout",
+	deleteAccount: "Delete Account",
+};
+
+export const users = [
+	{
+		id: 1,
+		username: "user1",
+		email: "user1@example.com",
+		password: "password123",
+		fullName: "John Doe",
+		age: 25,
+		gender: "male",
+		createdAt: "2024-03-12T08:00:00Z",
+		updatedAt: "2024-03-12T08:00:00Z",
+	},
+	{
+		id: 2,
+		username: "user2",
+		email: "user2@example.com",
+		password: "password456",
+		fullName: "Jane Smith",
+		age: 30,
+		gender: "female",
+		createdAt: "2024-03-12T08:00:00Z",
+		updatedAt: "2024-03-12T08:00:00Z",
+	},
+	{
+		id: 3,
+		username: "user3",
+		email: "user3@example.com",
+		password: "password789",
+		fullName: "Michael Johnson",
+		age: 35,
+		gender: "male",
+		createdAt: "2024-03-12T08:00:00Z",
+		updatedAt: "2024-03-12T08:00:00Z",
+	},
+	{
+		id: 4,
+		username: "user4",
+		email: "user4@example.com",
+		password: "passwordabc",
+		fullName: "Emily Brown",
+		age: 28,
+		gender: "female",
+		createdAt: "2024-03-12T08:00:00Z",
+		updatedAt: "2024-03-12T08:00:00Z",
+	},
+];

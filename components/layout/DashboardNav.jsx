@@ -26,13 +26,14 @@ const DashboardNav = (props) => {
 
 	const icons = {
 		"/": faHouse,
-		"news": faNewspaper,
-		"rankings": faTrophy,
-		"schedule": faCalendar,
+		news: faNewspaper,
+		rankings: faTrophy,
+		schedule: faCalendar,
 	};
 
 	return (
 		<>
+			<h1 className="text-xl font-heading">Dashboard</h1>
 			<div className="flex flex-row justify-center rounded-md overflow-clip bg-light-grey dark:bg-dark-grey shadow-inner-soft">
 				{Object.entries(icons).map(([key, icon]) => (
 					<Link key={key} href={`/dashboard/${key}`} className="w-full">
@@ -43,7 +44,9 @@ const DashboardNav = (props) => {
 						>
 							{renderIconOrWord(
 								icon,
-								(key !== "/") ? key.charAt(0).toUpperCase() + key.slice(1) : "Home"
+								key !== "/"
+									? key.charAt(0).toUpperCase() + key.slice(1)
+									: "Home"
 							)}
 						</button>
 					</Link>
