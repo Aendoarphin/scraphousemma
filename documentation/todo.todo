@@ -1,8 +1,8 @@
 JSX files for dashboard sections:
   ☐ dashboard/home
-    ☐ ui
-    ☐ interactivity
-    ☐ responsiveness
+    ✔ ui @done(24-03-18 17:06)
+    ✔ interactivity @done(24-03-18 17:06)
+    ✔ responsiveness @done(24-03-18 17:06)
   ✔ dashboard/news @done(24-03-02 22:15)
     ✔ ui @done(24-03-02 22:15)
     ✔ interactivity @done(24-02-27 21:05)
