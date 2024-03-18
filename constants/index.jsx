@@ -149,36 +149,44 @@ export const sampleNewsData = [
 ];
 
 export const filterItems = {
-	dateAdded: "Recently Added",
-	category: "Type",
+	all: "all",
+	article: "article",
+	fighter: "fighter",
+	event: "event",
 };
 
 export const savedItems = {
 	items: [
 		{
 			type: "article",
-			name: "Jones  vs. Miocic Set For April 2024",
+			name: "Jones vs. Miocic Set For April 2024",
+			added: "2024-03-17T08:00:00" // Example time: 08:00:00 (8:00 AM)
 		},
 		{
 			type: "fighter",
 			name: "Islam Makhachev",
 			image: "/images/fighterIslamMakhachev.jpg",
+			added: "2024-03-17T12:30:00" // Example time: 12:30:00 (12:30 PM)
 		},
 		{
 			type: "event",
 			name: "UFC 300",
 			location: "T-Mobile Arena in Las Vegas, NV",
+			added: "2024-03-17T15:45:00" // Example time: 15:45:00 (3:45 PM)
 		},
 		{
 			type: "event",
 			name: "UFC 299",
 			location: "Kaseya Center in Miami, FL",
+			added: "2024-03-17T18:20:00" // Example time: 18:20:00 (6:20 PM)
 		},
 		{
 			type: "event",
 			name: "ONE Friday Fights 55",
 			location: "Lumpinee Boxing Stadium in Bangkok, Thailand",
-		},
+			added: "2024-03-17T21:00:00" // Example time: 21:00:00 (9:00 PM)
+		}
+		
 	],
 };
 
