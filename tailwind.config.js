@@ -20,6 +20,9 @@ module.exports = {
       },
       fontWeight: {
         'heading': 'bold'
+      },
+      transitionDuration: {
+        'default': '.2s'
       }
     }
   },
