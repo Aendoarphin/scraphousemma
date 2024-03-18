@@ -1,15 +1,18 @@
 "use client";
-import { useState } from "react";
+// Icons
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import Link from "next/link";
 import {
 	faCalendar,
 	faNewspaper,
 	faTrophy,
 	faHouse,
 } from "@fortawesome/free-solid-svg-icons";
+// Next
+import Link from "next/link";
+// Hooks
+import { useState } from "react";
 
-const DashboardNav = (props) => {
+const DashboardNav = () => {
 	const [hoveredIcon, setHoveredIcon] = useState(null);
 
 	const handleHover = (icon) => {
@@ -32,9 +35,9 @@ const DashboardNav = (props) => {
 	};
 
 	return (
-		<>
-			<h1 className="text-xl font-heading">Dashboard</h1>
-			<div className="flex flex-row justify-center rounded-md overflow-clip bg-light-grey dark:bg-dark-grey shadow-inner-soft">
+		<div className="mb-4">
+			<h1 className="text-xl py-2 font-heading">Dashboard</h1>
+			<div className="flex flex-row justify-center rounded-md overflow-clip bg-light-grey dark:bg-dark-grey shadow-inner-soft transition-all ease-in">
 				{Object.entries(icons).map(([key, icon]) => (
 					<Link key={key} href={`/dashboard/${key}`} className="w-full">
 						<button
@@ -52,7 +55,7 @@ const DashboardNav = (props) => {
 					</Link>
 				))}
 			</div>
-		</>
+		</div>
 	);
 };
 
