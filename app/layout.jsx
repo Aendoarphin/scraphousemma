@@ -17,12 +17,14 @@ const nunitoSans = Nunito_Sans({ subsets: ["latin"] });
 export default function RootLayout({ children }) {
 	return (
 		<html lang="en" suppressHydrationWarning>
-			<body className={`${nunitoSans.className}`}>
-				<Providers>
-					<Nav />
-					{children}
-					<Footer />
-				</Providers>
+			<body className="flex flex-col min-h-screen">
+				<div className="flex-grow">
+					<Providers>
+						<Nav />
+						<main className="container mx-auto py-4">{children}</main>
+					</Providers>
+				</div>
+				<Footer />
 			</body>
 		</html>
 	);
