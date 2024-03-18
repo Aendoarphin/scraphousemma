@@ -53,7 +53,7 @@ const News = () => {
 	};
 
 	return (
-		<>
+		<div className="flex flex-col gap-4">
 			<div className="font-heading col-span-2 text-xl">
 				<FontAwesomeIcon icon={faNewspaper} /> Top News
 			</div>
@@ -84,7 +84,7 @@ const News = () => {
 					<FontAwesomeIcon size="xl" icon={faArrowAltCircleRight} />
 				</button>
 			</div>
-		</>
+		</div>
 	);
 };
 
