@@ -7,9 +7,12 @@ import Link from "next/link";
 
 const Nav = () => {
 	const [isOpen, setIsOpen] = useState(false);
-	const [prevScrollPos, setPrevScrollPos] = useState(0);
+	const [signedIn, setSignedIn] = useState(true);
 	const [visible, setVisible] = useState(true);
+	const [prevScrollPos, setPrevScrollPos] = useState(0);
+
 	const navRef = useRef(null);
+
 
 	// Expand/collapse links
 	const handleMenuClick = (id = "") => {
@@ -68,7 +71,7 @@ const Nav = () => {
 				<div className="border-b border-black border-opacity-5 dark:border-white dark:border-opacity-5 flex flex-row justify-evenly">
 					{isOpen && (
 						<>
-							<Link href="/dashboard" className="p-4" onClick={handleMenuClick}>
+							<Link href={signedIn ? "/dashboard" : "/account/user"} className="p-4" onClick={handleMenuClick}>
 								Dashboard
 							</Link>
 							<Link href="/about" className="p-4" onClick={handleMenuClick}>
@@ -96,9 +99,9 @@ const Nav = () => {
 						onClick={handleMenuClick}
 						className="hover:cursor-pointer"
 					/>
-					<a href="">
+					<Link id="account" href={signedIn ? "/dashboard" : "/account/user"}>
 						<FontAwesomeIcon icon={faUser} />
-					</a>
+					</Link>
 					<ThemeToggle />
 				</div>
 			</div>
