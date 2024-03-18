@@ -5,8 +5,8 @@ export default function DashboardLayout({ children }) {
 		<div
 			className="
 		overflow-hidden
-		pt-24 px-8 sm:px-20 md:px-32 lg:px-60
-		flex flex-col gap-4 h-min"
+		pt-24 px-8 sm:px-20 md:px-16 lg:px-28
+		flex flex-col h-min"
 		>
 			<DashboardNav />
 			{children}
