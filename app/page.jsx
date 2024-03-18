@@ -103,7 +103,7 @@ export default function Home() {
             <h1 className="font-heading text-4xl">Join Us Today!</h1>
             <p>
               Discover the thrill of MMA with ScrapHouse. Sign up now for
-              exclusive content, live updates, and more!
+              exciting content, live updates, and more!
             </p>
             <Button text={"Get Started"} />
           </div>
