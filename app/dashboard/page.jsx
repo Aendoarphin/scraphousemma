@@ -2,7 +2,10 @@
 // Components
 import SavedItems from "@/components/ui/dashboard/SavedItems";
 import User from "@/components/ui/dashboard/User";
-
+/**
+ * 
+ * @returns JSX that contains user dashboard content
+ */
 const DashboardHome = () => {
 	return (
 		<>

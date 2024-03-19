@@ -1,22 +1,25 @@
 "use client";
-// hooks
+// Hooks
 import { useState } from "react";
-// next
+// Next
 import Link from "next/link";
-// fontawesome
+// Icons
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
     faArrowAltCircleLeft,
     faArrowAltCircleRight,
     faNewspaper,
 } from "@fortawesome/free-solid-svg-icons";
-// components
+// Components
 import NewsItem from "@/components/ui/news/NewsItem";
 import NewsGrid from "@/components/ui/news/NewsGrid";
 import Pagination from "@/components/ui/Pagination";
-// data
+// Static data
 import { sampleNewsData } from "@/constants";
-
+/**
+ * 
+ * @returns JSX that contains news content
+ */
 const News = () => {
 	let topStories = sampleNewsData.slice(0, 3);
 	let otherStories = sampleNewsData.slice(3);

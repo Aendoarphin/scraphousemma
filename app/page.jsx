@@ -1,17 +1,21 @@
+// Icons
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faCalendar,
   faNewspaper,
   faTrophy,
 } from "@fortawesome/free-solid-svg-icons";
+// Next
 import Image from "next/image";
+// Components
 import Button from "@/components/ui/Button";
+// Static files
 import ufc from "@/public/logos/ufc.svg";
 import pfl from "@/public/logos/pfl.svg";
 import bellator from "@/public/logos/bellator.svg";
 import onefc from "@/public/logos/onefc.svg";
 
-function Feature({ icon, text }) {
+const Feature = ({ icon, text }) => {
   return (
     <div className="flex flex-col gap-4">
       <FontAwesomeIcon icon={icon} className="text-4xl" />
@@ -20,7 +24,7 @@ function Feature({ icon, text }) {
   );
 }
 
-function Promotion({ alt, src }) {
+const Promotion = ({ alt, src }) => {
   return (
     <Image
       alt={alt}
@@ -31,7 +35,11 @@ function Promotion({ alt, src }) {
   );
 }
 
-export default function Home() {
+/**
+ * 
+ * @returns JSX that contains content for the landing page
+ */
+const Home = () => {
   return (
     <>
       <Image
@@ -112,3 +120,5 @@ export default function Home() {
     </>
   );
 }
+
+export default Home;

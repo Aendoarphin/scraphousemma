@@ -3,18 +3,21 @@
 import { faFilter } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 // Hooks
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 
 /**
  * A button to filter saved items.
  * @param {Object} props - The props object containing the component's properties.
  * @param {string} props.initialValue - The default value to display on the button.
- * @returns {JSX.Element} A JSX element representing the button.
+ * @returns {JSX.Element} A JSX element representing the filter button.
  */
 const ItemFilter = (props) => {
 	const [currentFilterValue, setCurrentFilterValue] = useState(
 		props.initialValue
 	);
+
+	const node = useRef();
+
 	const handleFilterSelected = (selectedValue) => {
 		props.resolvedFilter(selectedValue)
 		setCurrentFilterValue(selectedValue);
@@ -26,8 +29,22 @@ const ItemFilter = (props) => {
 		setFilterIsOpen(!filterIsOpen);
 	};
 
+	const handleClickOutside = (event) => {
+    if (node.current && !node.current.contains(event.target)) {
+      setFilterIsOpen(false);
+    }
+  };
+
+	useEffect(() => {
+    document.addEventListener('mousedown', handleClickOutside);
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, []);
+
 	return (
-		<>
+		<div className="align-middle flex" ref={node}>
 			<button
 				className="self-center p-2 rounded-md bg-light-grey dark:bg-dark-grey transition-all ease-in"
 				onClick={handleFilterClick}
@@ -53,7 +70,7 @@ const ItemFilter = (props) => {
 					))}
 				</div>
 			)}
-		</>
+		</div>
 	);
 };
 
