@@ -22,7 +22,7 @@ const Feature = ({ icon, text }) => {
       <p>{text}</p>
     </div>
   );
-}
+};
 
 const Promotion = ({ alt, src }) => {
   return (
@@ -33,10 +33,10 @@ const Promotion = ({ alt, src }) => {
       className="m-auto dark:invert-0 invert"
     />
   );
-}
+};
 
 /**
- * 
+ *
  * @returns JSX that contains content for the landing page
  */
 const Home = () => {
@@ -46,7 +46,7 @@ const Home = () => {
         src={"/images/diazmcgregor.png"}
         width={500}
         height={500}
-        alt=""
+        alt="background image 1"
         className="blur-sm absolute size-full object-left object-cover grayscale -z-10 opacity-5"
       />
       <div className="text-sm h-screen p-8 text-center flex flex-wrap justify-center gap-6">
@@ -81,7 +81,7 @@ const Home = () => {
         src={"/images/jonesgustafsson.png"}
         width={500}
         height={500}
-        alt=""
+        alt="background image 2"
         className="blur-sm absolute size-full object-center object-cover grayscale -z-10 opacity-5"
       />
       <div className="text-sm h-screen p-8 text-center flex flex-wrap justify-center gap-6">
@@ -102,8 +102,8 @@ const Home = () => {
         src={"/images/rodtangjohnson.png"}
         width={500}
         height={500}
-        alt=""
-        className="blur-sm absolute size-[110%] object-top object-cover grayscale -z-10 opacity-5"
+        alt="background image 3"
+        className="blur-sm absolute size-[115%] object-top object-cover grayscale -z-10 opacity-5"
       />
       <div className="text-sm h-screen p-8 text-center flex flex-wrap justify-center gap-6">
         <div className="px-8 size-full flex flex-col justify-around">
@@ -119,6 +119,6 @@ const Home = () => {
       </div>
     </>
   );
-}
+};
 
 export default Home;
