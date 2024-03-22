@@ -21,13 +21,13 @@ export default function RootLayout({ children }) {
 	return (
 		<html lang="en" suppressHydrationWarning>
 			<body className="flex flex-col min-h-screen">
-				<div className="">
+				<div>
 					<Providers>
 						<Nav />
 						<main>{children}</main>
+						<Footer />
 					</Providers>
 				</div>
-				<Footer />
 			</body>
 		</html>
 	);
