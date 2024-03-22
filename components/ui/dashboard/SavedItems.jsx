@@ -52,7 +52,7 @@ const SavedItems = () => {
 								>
 									<div className="p-4 flex flex-col gap-2 group-hover:scale-105 transition-transform ease-in">
 										<div className="uppercase dark:text-white dark:text-opacity-25 transition-all ease-in text-black text-opacity-25 text-xs">
-											{item.type} {currentFilterValue}
+											{item.type}
 										</div>
 										<div className="flex justify-between font-heading">
 											<div className="flex flex-col gap-2">
