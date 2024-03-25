@@ -8,35 +8,25 @@ import onefc from "@/public/logos/onefc.svg";
 // Next
 import Image from "next/image";
 import { useRef, useState } from "react";
-
-const handleLeagueClicked = (id) => {
-  
-}
-
-const PanelChild = () => {
-  return (
-    <div className={`${cardStyle} hidden`}>
-      1
-    </div>
-  )
-}
+import Link from "next/link";
 
 const Panel = (props) => {
-  const [selected, setSelected] = useState();
-  const cardStyle =
-  "cursor-pointer transition-all ease-in hover:scale-[102%] p-4 size-full bg-light-grey rounded-md dark:bg-dark-grey flex items-center justify-center";
+  const [active, setActive] = useState(false);
 
+  const cardStyle =
+    "flex shadow-inner-soft cursor-pointer transition-all ease-in hover:scale-[102%] p-4 size-full bg-light-grey rounded-md dark:bg-dark-grey flex items-center justify-center";
 
   return (
-    <div className="flex">
-      <div
-      id={props.id}
-      className={cardStyle}
-      onClick={() => handleLeagueClicked(props.id)}
-    >
-      <Image alt={props.alt} height={100} src={props.src} />
-    </div>
-    </div>
+    <Link href={"rankings/ufc"} className="flex flex-col gap-0">
+      <div id={props.id} className={cardStyle}>
+        <Image
+          alt={props.alt}
+          height={100}
+          src={props.src}
+          className="invert dark:invert-0 ease-in transition-all"
+        />
+      </div>
+    </Link>
   );
 };
 

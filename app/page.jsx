@@ -30,7 +30,7 @@ const Promotion = ({ alt, src }) => {
       alt={alt}
       height={100}
       src={src}
-      className="m-auto dark:invert-0 invert"
+      className="m-auto dark:invert-0 invert ease-in transition-all"
     />
   );
 };
