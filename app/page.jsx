@@ -103,7 +103,7 @@ const Home = () => {
         width={500}
         height={500}
         alt="background image 3"
-        className="blur-sm absolute size-[115%] object-top object-cover grayscale -z-10 opacity-5"
+        className="blur-sm absolute size-[110%] object-top object-cover grayscale -z-10 opacity-5"
       />
       <div className="text-sm h-screen p-8 text-center flex flex-wrap justify-center gap-6">
         <div className="px-8 size-full flex flex-col justify-around">

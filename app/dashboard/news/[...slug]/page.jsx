@@ -49,7 +49,8 @@ const Article = ({ params }) => {
 				/>
 			</div>
 			{/* Render sanitized HTML */}
-			<div dangerouslySetInnerHTML={{ __html: sanitizedHtml }} />
+			<article dangerouslySetInnerHTML={{ __html: sanitizedHtml }}></article>
+
 		</div>
 	);
 };
