@@ -17,9 +17,9 @@ import onefc from "@/public/logos/onefc.svg";
 
 const Feature = ({ icon, text }) => {
   return (
-    <div className="flex flex-col gap-4">
+    <div className="flex flex-col gap-4 items-center">
       <FontAwesomeIcon icon={icon} className="text-4xl" />
-      <p>{text}</p>
+      <p className="max-w-40">{text}</p>
     </div>
   );
 };
@@ -30,7 +30,7 @@ const Promotion = ({ alt, src }) => {
       alt={alt}
       height={100}
       src={src}
-      className="m-auto dark:invert-0 invert ease-in transition-all"
+      className="m-auto dark:invert-0 invert defaultTransition"
     />
   );
 };
@@ -60,7 +60,7 @@ const Home = () => {
           </div>
           <div className="flex flex-col gap-8">
             <h1 className=" font-heading text-4xl">Features</h1>
-            <div className="flex flex-col gap-10">
+            <div className="flex flex-col sm:flex-row gap-10 justify-center">
               <Feature
                 icon={faNewspaper}
                 text="Stay up to date with the latest headlines from multiple sources"

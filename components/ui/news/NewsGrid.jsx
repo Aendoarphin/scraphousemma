@@ -18,7 +18,7 @@ const NewsGrid = (props) => {
 								: index === 1
 								? "row-start-1 row-span-6 text-xs sm:text-base"
 								: "row-start-7 row-span-6 text-xs sm:text-base"
-						} hover:scale-[102%] ease-in transition-transform relative`}
+						} hover:scale-[102%] defaultTransition relative`}
 					>
 						<Image
 							alt={`top story image ${index + 1}`}

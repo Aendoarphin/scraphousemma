@@ -2,9 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 
+$themeTransition: all 200ms ease-in;
+
 @font-face {
   font-family: "ktn";
   src: url('../public/fonts/kill-the-noise.otf');
+}
+
+.defaultTransition {
+  transition: $themeTransition;
 }
 
 .brand {
@@ -12,13 +18,13 @@
 }
 
 [class='dark'] {
-  transition: all .2s ease-in;
+  transition: $themeTransition;
   color: #e3e3e3;
   background-color: #101010;
 }
 
 [class='light'] {
-  transition: all .2s ease-in;
+  transition: $themeTransition;
   color: #101010;
   background-color: #e3e3e3;
 }

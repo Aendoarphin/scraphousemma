@@ -1,7 +1,7 @@
 import Button from "./Button";
 
 const AccountForm = (props) => {
-  const inputStyle = "bg-opacity-0 bg-white transition-all ease-in duration-default border-b border-black dark:border-white p-2 outline-none"
+  const inputStyle = "bg-opacity-0 bg-white defaultTransition border-b border-black dark:border-white p-2 outline-none"
   return (
     <div className="flex flex-col gap-4 p-20 m-40 bg-light-grey dark:bg-dark-grey rounded-md">
       <h1 className="text-center font-heading">Sign In or Sign Up</h1>

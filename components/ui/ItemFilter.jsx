@@ -46,7 +46,7 @@ const ItemFilter = (props) => {
 	return (
 		<div className="align-middle flex" ref={node}>
 			<button
-				className="self-center p-2 rounded-md bg-light-grey dark:bg-dark-grey transition-all ease-in"
+				className="self-center p-2 rounded-md bg-light-grey dark:bg-dark-grey defaultTransition"
 				onClick={handleFilterClick}
 			>
 				<div id="current-value" className="text-xs uppercase">

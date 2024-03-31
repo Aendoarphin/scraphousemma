@@ -11,10 +11,8 @@ import { useRef, useState } from "react";
 import Link from "next/link";
 
 const Panel = (props) => {
-  const [active, setActive] = useState(false);
-
   const cardStyle =
-    "flex shadow-inner-soft cursor-pointer transition-all ease-in hover:scale-[102%] p-4 size-full bg-light-grey rounded-md dark:bg-dark-grey flex items-center justify-center";
+    "flex shadow-inner-soft cursor-pointer defaultTransition hover:scale-[102%] p-4 size-full bg-light-grey rounded-md dark:bg-dark-grey flex items-center justify-center";
 
   return (
     <Link href={"rankings/ufc"} className="flex flex-col gap-0">

@@ -20,14 +20,12 @@ const nunitoSans = Nunito_Sans({ subsets: ["latin"] });
 export default function RootLayout({ children }) {
 	return (
 		<html lang="en" suppressHydrationWarning>
-			<body className="flex flex-col min-h-screen">
-				<div>
-					<Providers>
-						<Nav />
-						<main>{children}</main>
-						<Footer />
-					</Providers>
-				</div>
+			<body className="flex flex-col justify-between min-h-screen">
+				<Providers>
+					<Nav />
+					<main>{children}</main>
+					<Footer />
+				</Providers>
 			</body>
 		</html>
 	);
