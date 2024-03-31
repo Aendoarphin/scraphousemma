@@ -5,18 +5,22 @@
   font-family: "ktn";
   src: url("../public/fonts/kill-the-noise.otf");
 }
+.defaultTransition {
+  transition: all 200ms ease-in;
+}
+
 .brand {
   font-family: ktn;
 }
 
 [class=dark] {
-  transition: all 0.2s ease-in;
+  transition: all 200ms ease-in;
   color: #e3e3e3;
   background-color: #101010;
 }
 
 [class=light] {
-  transition: all 0.2s ease-in;
+  transition: all 200ms ease-in;
   color: #101010;
   background-color: #e3e3e3;
 }
