@@ -1,35 +1,68 @@
+import { p4p } from "@/constants";
 import Image from "next/image";
-import jonJones from "@/public/images/jonJones.png"
+import Link from "next/link";
+import ReactCountryFlag from "react-country-flag";
 
-let fighters = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-
-const FighterCard = (props) => {
+const RankingListItem = (props) => {
 	return (
-		<div className="border flex flex-col justify-center">
-			<div className=""><Image src={jonJones} alt="fighter image" className="size-44 object-cover"/></div>
-			<div className="flex flex-row items-center"><div className={`text-center px-2 ${props.isTop ? "bg-[#916f3f]" : "border"}`}>1</div><div className="px-2">Rose Namajunas</div></div>
-		</div>
+		<Link
+			href=""
+			className="border-b border-white border-opacity-25 last:border-none"
+		>
+			<li className="flex flex-row gap-4 items-center p-2">
+				<h1
+					className={`font-heading ${
+						props.index === 0 ? "bg-gold" : ""
+					} w-6 text-center`}
+				>
+					{props.index + 1}
+				</h1>
+				<hr className="border-l border-white border-opacity-25 h-4" />
+				<p>{props.fighterName}</p>
+				<ReactCountryFlag
+					countryCode={props.country}
+					svg
+					style={{
+						width: "1em",
+						height: "1em",
+					}}
+					title={props.country}
+				/>
+				<p>{props.record}</p>
+			</li>
+		</Link>
 	);
 };
 
-const Rankings = (props) => {
+const RankingList = (props) => {
 	return (
-		<div className="flex flex-col gap-4 border border-main justify-center">
-			<h1 className="font-heading">Pound For Pound</h1>
-			<div className="bg-light-grey dark:bg-dark-grey p-4 font-heading rounded-md flex flex-wrap gap-4">
-				{fighters.map((value, index) => {
-					const top = value === 1 ? true : false
-					return <FighterCard key={index} isTop={top}/>;
+		<div className="bg-light-grey dark:bg-dark-grey defaultTransition p-4 rounded-md shadow-inner-soft">
+			<h1 className="font-heading first-letter:uppercase">
+				{props.gender}&apos;s Pound For Pound
+			</h1>
+			<ul className="flex flex-col justify-center">
+				{p4p.men.ufc.map((value, index) => {
+					return (
+						<RankingListItem
+							key={index}
+							index={index}
+							fighterName={value.fighterName}
+							country={value.countryCode}
+							record={value.record}
+						/>
+					);
 				})}
-			</div>
+			</ul>
 		</div>
 	);
 };
 
 const RankingsUfc = () => {
 	return (
-		<div className="">
-			<Rankings />
+		<div className=" bg-white dark:bg-black defaultTransition overflow-visible pb-2">
+			<RankingList
+				gender={Object.keys(p4p).filter((value) => value === "men")}
+			/>
 		</div>
 	);
 }; // making rankings template
