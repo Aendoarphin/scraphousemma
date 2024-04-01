@@ -1,4 +1,4 @@
-"use client"
+"use client";
 // Icons
 import { faFilter } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -19,7 +19,7 @@ const ItemFilter = (props) => {
 	const node = useRef();
 
 	const handleFilterSelected = (selectedValue) => {
-		props.resolvedFilter(selectedValue)
+		props.resolvedFilter(selectedValue);
 		setCurrentFilterValue(selectedValue);
 		setFilterIsOpen(false);
 	};
@@ -30,26 +30,29 @@ const ItemFilter = (props) => {
 	};
 
 	const handleClickOutside = (event) => {
-    if (node.current && !node.current.contains(event.target)) {
-      setFilterIsOpen(false);
-    }
-  };
+		if (node.current && !node.current.contains(event.target)) {
+			setFilterIsOpen(false);
+		}
+	};
 
 	useEffect(() => {
-    document.addEventListener('mousedown', handleClickOutside);
+		document.addEventListener("mousedown", handleClickOutside);
 
-    return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
-    };
-  }, []);
+		return () => {
+			document.removeEventListener("mousedown", handleClickOutside);
+		};
+	}, []);
 
 	return (
-		<div className="align-middle flex" ref={node}>
+		<div className="flex justify-end" ref={node}>
 			<button
 				className="self-center p-2 rounded-md bg-light-grey dark:bg-dark-grey defaultTransition"
 				onClick={handleFilterClick}
 			>
-				<div id="current-value" className="text-xs uppercase">
+				<div
+					id="current-value"
+					className="text-xs uppercase flex flex-row items-center gap-2"
+				>
 					{currentFilterValue} <FontAwesomeIcon icon={faFilter} />
 				</div>
 			</button>
@@ -63,9 +66,9 @@ const ItemFilter = (props) => {
 							className="text-xs uppercase text-start hover:text-opacity-100"
 							onClick={() => handleFilterSelected(props.filterItems[key])}
 						>
-							<p className="text-[grey] hover:text-black dark:hover:text-white">
+							<div className="text-[grey] hover:text-black dark:hover:text-white">
 								{props.filterItems[key]}
-							</p>
+							</div>
 						</button>
 					))}
 				</div>

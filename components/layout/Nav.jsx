@@ -1,8 +1,13 @@
 "use client";
 import { useState, useEffect, useRef } from "react";
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBars, faUser } from "@fortawesome/free-solid-svg-icons";
-import ThemeToggle from "../util/ThemeToggle";
+import {
+	faBarsStaggered,
+	faUser,
+	faBars,
+} from "@fortawesome/free-solid-svg-icons";
+import ThemeSwitch from "../util/ThemeSwitch";
 import Link from "next/link";
 
 const Nav = () => {
@@ -12,7 +17,6 @@ const Nav = () => {
 	const [prevScrollPos, setPrevScrollPos] = useState(0);
 
 	const navRef = useRef(null);
-
 
 	// Expand/collapse links
 	const handleMenuClick = (id = "") => {
@@ -57,30 +61,12 @@ const Nav = () => {
 		<div
 			id="nav"
 			ref={navRef}
-			className={`z-10 fixed top-0 right-0 left-0 ${
+			className={`z-10 fixed w-full ${
 				visible
 					? "translate-y-0 transition-transform"
 					: "-translate-y-96 transition-transform"
 			}`}
 		>
-			<div
-				className={`transition-all ${
-					isOpen ? "h-14 opacity-100" : "h-0 opacity-0"
-				}`}
-			>
-				<div className="border-b border-black border-opacity-5 dark:border-white dark:border-opacity-5 flex flex-row justify-evenly">
-					{isOpen && (
-						<>
-							<Link href={signedIn ? "/dashboard" : "/account/user"} className="p-4" onClick={handleMenuClick}>
-								Dashboard
-							</Link>
-							<Link href="/about" className="p-4" onClick={handleMenuClick}>
-								About
-							</Link>
-						</>
-					)}
-				</div>
-			</div>
 			<div className="px-8 py-4 flex items-center justify-between">
 				<Link
 					id="brand"
@@ -94,15 +80,41 @@ const Nav = () => {
 					</span>
 				</Link>
 				<div id="links" className="flex flex-wrap items-center gap-6 text-sm">
+					<div
+						className={`defaultTransition ${
+							isOpen ? "opacity-100" : "opacity-0"
+						}`}
+					>
+						<div className="flex flex-row justify-between w-full">
+							{isOpen && (
+								<>
+									<Link
+										href={signedIn ? "/dashboard" : "/account/user"}
+										className="p-4 hover:underline defaultTransition"
+										onClick={handleMenuClick}
+									>
+										Dashboard
+									</Link>
+									<Link
+										href="/about"
+										className="p-4 hover:underline defaultTransition"
+										onClick={handleMenuClick}
+									>
+										About
+									</Link>
+								</>
+							)}
+						</div>
+					</div>
 					<FontAwesomeIcon
-						icon={faBars}
+						icon={isOpen ? faBarsStaggered : faBars}
 						onClick={handleMenuClick}
 						className="hover:cursor-pointer"
 					/>
 					<Link id="account" href={signedIn ? "/dashboard" : "/account/user"}>
 						<FontAwesomeIcon icon={faUser} />
 					</Link>
-					<ThemeToggle />
+					<ThemeSwitch />
 				</div>
 			</div>
 		</div>

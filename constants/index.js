@@ -149,89 +149,91 @@ export const sampleNewsData = [
 ];
 
 export const filterItems = {
-	all: "all",
-	article: "article",
-	fighter: "fighter",
-	event: "event",
+	dashboard: {
+		all: "all",
+		article: "article",
+		fighter: "fighter",
+		event: "event",
+	}
 };
 
 export const divisions = {
-	ufc: {
-		men: {
-			Flyweight: "125 lbs (56.7 kg)",
-			Bantamweight: "135 lbs (61.2 kg)",
-			Featherweight: "145 lbs (65.8 kg)",
-			Lightweight: "155 lbs (70.3 kg)",
-			Welterweight: "170 lbs (77.1 kg)",
-			Middleweight: "185 lbs (83.9 kg)",
-			"Light Heavyweight": "205 lbs (93.0 kg)",
-			Heavyweight: "265 lbs (120.2 kg)",
+	"ufc": {
+		"men": {
+			"flyweight": "125 lbs (56.7 kg)",
+			"bantamweight": "135 lbs (61.2 kg)",
+			"featherweight": "145 lbs (65.8 kg)",
+			"lightweight": "155 lbs (70.3 kg)",
+			"welterweight": "170 lbs (77.1 kg)",
+			"middleweight": "185 lbs (83.9 kg)",
+			"light heavyweight": "205 lbs (93.0 kg)",
+			"heavyweight": "265 lbs (120.2 kg)"
 		},
-		women: {
-			Strawweight: "115 lbs (52.2 kg)",
-			Flyweight: "125 lbs (56.7 kg)",
-			Bantamweight: "135 lbs (61.2 kg)",
-			Featherweight: "145 lbs (65.8 kg)",
-		},
+		"women": {
+			"strawweight": "115 lbs (52.2 kg)",
+			"flyweight": "125 lbs (56.7 kg)",
+			"bantamweight": "135 lbs (61.2 kg)",
+			"featherweight": "145 lbs (65.8 kg)"
+		}
 	},
-	onefc: {
-		men: {
-			Strawweight: "115 lbs (52.2 kg)",
-			Flyweight: "125 lbs (56.7 kg)",
-			Bantamweight: "135 lbs (61.2 kg)",
-			Featherweight: "145 lbs (65.8 kg)",
-			Lightweight: "155 lbs (70.3 kg)",
-			Welterweight: "170 lbs (77.1 kg)",
-			Middleweight: "185 lbs (83.9 kg)",
-			"Light Heavyweight": "205 lbs (93.0 kg)",
-			Heavyweight: "Unlimited",
+	"onefc": {
+		"men": {
+			"strawweight": "115 lbs (52.2 kg)",
+			"flyweight": "125 lbs (56.7 kg)",
+			"bantamweight": "135 lbs (61.2 kg)",
+			"featherweight": "145 lbs (65.8 kg)",
+			"lightweight": "155 lbs (70.3 kg)",
+			"welterweight": "170 lbs (77.1 kg)",
+			"middleweight": "185 lbs (83.9 kg)",
+			"light heavyweight": "205 lbs (93.0 kg)",
+			"heavyweight": "Unlimited"
 		},
-		women: {
-			Atomweight: "105 lbs (47.6 kg)",
-			Strawweight: "115 lbs (52.2 kg)",
-			Flyweight: "125 lbs (56.7 kg)",
-			Bantamweight: "135 lbs (61.2 kg)",
-			Featherweight: "145 lbs (65.8 kg)",
-			Lightweight: "155 lbs (70.3 kg)",
-			Welterweight: "170 lbs (77.1 kg)",
-			Middleweight: "185 lbs (83.9 kg)",
-			"Light Heavyweight": "205 lbs (93.0 kg)",
-			Heavyweight: "Unlimited",
-		},
+		"women": {
+			"atomweight": "105 lbs (47.6 kg)",
+			"strawweight": "115 lbs (52.2 kg)",
+			"flyweight": "125 lbs (56.7 kg)",
+			"bantamweight": "135 lbs (61.2 kg)",
+			"featherweight": "145 lbs (65.8 kg)",
+			"lightweight": "155 lbs (70.3 kg)",
+			"welterweight": "170 lbs (77.1 kg)",
+			"middleweight": "185 lbs (83.9 kg)",
+			"light heavyweight": "205 lbs (93.0 kg)",
+			"heavyweight": "Unlimited"
+		}
 	},
-	bellator: {
-		men: {
-			Bantamweight: "135 lbs (61.2 kg)",
-			Featherweight: "145 lbs (65.8 kg)",
-			Lightweight: "155 lbs (70.3 kg)",
-			Welterweight: "170 lbs (77.1 kg)",
-			Middleweight: "185 lbs (83.9 kg)",
-			"Light Heavyweight": "205 lbs (93.0 kg)",
-			Heavyweight: "Unlimited",
+	"bellator": {
+		"men": {
+			"bantamweight": "135 lbs (61.2 kg)",
+			"featherweight": "145 lbs (65.8 kg)",
+			"lightweight": "155 lbs (70.3 kg)",
+			"welterweight": "170 lbs (77.1 kg)",
+			"middleweight": "185 lbs (83.9 kg)",
+			"light heavyweight": "205 lbs (93.0 kg)",
+			"heavyweight": "Unlimited"
 		},
-		women: {
-			Flyweight: "125 lbs (56.7 kg)",
-			Featherweight: "145 lbs (65.8 kg)",
-			Lightweight: "155 lbs (70.3 kg)",
-			Welterweight: "170 lbs (77.1 kg)",
-			Middleweight: "185 lbs (83.9 kg)",
-			"Light Heavyweight": "205 lbs (93.0 kg)",
-			Heavyweight: "Unlimited",
-		},
+		"women": {
+			"flyweight": "125 lbs (56.7 kg)",
+			"featherweight": "145 lbs (65.8 kg)",
+			"lightweight": "155 lbs (70.3 kg)",
+			"welterweight": "170 lbs (77.1 kg)",
+			"middleweight": "185 lbs (83.9 kg)",
+			"light heavyweight": "205 lbs (93.0 kg)",
+			"heavyweight": "Unlimited"
+		}
 	},
-	pfl: {
-		men: {
-			Featherweight: "145 lbs (65.8 kg)",
-			Lightweight: "155 lbs (70.3 kg)",
-			Welterweight: "170 lbs (77.1 kg)",
-			Middleweight: "185 lbs (83.9 kg)",
-			"Light Heavyweight": "205 lbs (93.0 kg)",
-			Heavyweight: "Unlimited",
+	"pfl": {
+		"men": {
+			"featherweight": "145 lbs (65.8 kg)",
+			"lightweight": "155 lbs (70.3 kg)",
+			"welterweight": "170 lbs (77.1 kg)",
+			"middleweight": "185 lbs (83.9 kg)",
+			"light heavyweight": "205 lbs (93.0 kg)",
+			"heavyweight": "Unlimited"
 		},
-		women: {
-			Lightweight: "155 lbs (70.3 kg)",
-			Welterweight: "170 lbs (77.1 kg)",
-		},
+		"women": {
+			"lightweight": "155 lbs (70.3 kg)",
+			"welterweight": "170 lbs (77.1 kg)"
+		}
 	},
 };
 
@@ -264,6 +266,15 @@ export const p4p = {
 				countryCode: "CM",
 				age: 35,
 				image: "https://www.mmafacts.com/wp-content/uploads/2021/04/francis_ngannou.png"
+			},
+			{
+				fighterName: "Jon Jones",
+				weightClass: "Heavyweight",
+				record: "27-1",
+				country: "United States",
+				countryCode: "US",
+				age: 35,
+				image: "https://www.mmafacts.com/wp-content/uploads/2021/04/jon_jones.png"
 			}
 		],
 		bellator: [
@@ -384,11 +395,6 @@ export const p4p = {
 	}
 };
 
-
-
-
-
-
 export const savedItems = {
 	items: [
 		{
@@ -399,7 +405,7 @@ export const savedItems = {
 		{
 			type: "fighter",
 			name: "Islam Makhachev",
-			image: "/images/fighterIslamMakhachev.jpg",
+			image: "https://www.mmafacts.com/wp-content/uploads/2021/03/islam_makhachev.png",
 			added: "2024-03-17T12:30:00", // Example time: 12:30:00 (12:30 PM)
 		},
 		{

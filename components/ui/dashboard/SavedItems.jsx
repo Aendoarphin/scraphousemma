@@ -11,9 +11,7 @@ import { useState } from "react";
 import ItemFilter from "@/components/ui/ItemFilter";
 
 const SavedItems = () => {
-	const [hasSavedItems] = useState(
-		savedItems.items.length > 0
-	);
+	const [hasSavedItems] = useState(savedItems.items.length > 0);
 	const [currentFilterValue, setCurrentFilterValue] = useState("all");
 
 	const getCurrentFilter = (value) => {
@@ -27,8 +25,8 @@ const SavedItems = () => {
 				<div className="flex flex-row justify-end">
 					<ItemFilter
 						resolvedFilter={getCurrentFilter}
-						filterItems={filterItems}
-						initialValue={filterItems.all}
+						filterItems={filterItems.dashboard}
+						initialValue={filterItems.dashboard.all}
 					/>
 				</div>
 			</div>
