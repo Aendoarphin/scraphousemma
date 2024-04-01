@@ -13,7 +13,7 @@ module.exports = {
       'white': '#e3e3e3',
       'dark-grey': '#1a1a1a',
       'light-grey': '#cccccc',
-      'gold': '#ffb85c6d',
+      'gold': '#b47331',
     },
     extend: {
       boxShadow: {
