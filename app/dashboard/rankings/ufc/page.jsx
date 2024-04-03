@@ -5,7 +5,9 @@ import { useEffect, useState } from "react";
 
 const RankingsUfc = () => {
 	const getRankings = async () => {
-		const res = await fetch("http://localhost:3000/api/ufc/rankings/");
+		const res = await fetch("http://localhost:3000/api/ufc/rankings/", {
+			method: "GET",
+		});
 		return res.json();
 	};
 
@@ -15,8 +17,8 @@ const RankingsUfc = () => {
 	useEffect(() => {
 		const fetchData = async () => {
 			try {
-				const data = await getRankings();
-				setRankingsData(data);
+				const ufcRankings = await getRankings();
+				setRankingsData(ufcRankings);
 			} catch (error) {
 				console.error("Error fetching rankings:", error);
 			}
@@ -28,23 +30,24 @@ const RankingsUfc = () => {
 		setFilter(value);
 	};
 
-	const filterLabels = rankingsData.map((item, index) => (
-		item.categoryName
-	))
-
 	return (
 		<div className="bg-white dark:bg-black defaultTransition overflow-visible pb-2 gap-4 flex flex-col">
 			<div className="flex flex-row gap-2 justify-end">
 				<ItemFilter
 					resolvedFilter={getFilter}
-					filterItems={filterLabels}
+					filterItems={rankingsData.map((item) => item.categoryName)}
 					initialValue={filter}
 				/>
 			</div>
 			{rankingsData.length !== 0 ? (
 				rankingsData.map((item, index) => {
 					return (
-						<div key={index} className={`${item.categoryName === filter ? "visible" : "hidden"}`}>
+						<div
+							key={index}
+							className={`${
+								item.categoryName === filter ? "visible" : "hidden"
+							}`}
+						>
 							<RankingList
 								division={item.categoryName}
 								fighters={item.fighters}
