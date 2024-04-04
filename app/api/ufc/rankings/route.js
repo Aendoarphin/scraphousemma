@@ -24,8 +24,20 @@ export const GET = async () => {
 		// Check if data already exists in the collection
 		const existingData = await UfcRanking.find({});
 		if (existingData && existingData.length > 0) {
-			console.log("Data already exists, no new data was created");
-			console.log(typeof existingData)
+			console.log("Data retrieved: ", existingData[0].createdAt);
+
+			// Convert existing data's createdAt to a Date object for comparison
+			const existingDate = new Date(existingData[0].createdAt);
+			// Convert new data's updatedAt to a Date object for comparison
+			const newDataDate = new Date(data.updated_at);
+
+			if (existingDate < newDataDate) {
+				// Update existing documents in the collection
+				await UfcRanking.updateMany({}, data);
+				console.log("Data updated: UfcRanking");
+				return NextResponse.json(data, { statusText: 200 });
+			}
+
 			return NextResponse.json(existingData, { statusText: 200 });
 		}
 

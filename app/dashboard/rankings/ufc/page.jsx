@@ -50,6 +50,7 @@ const RankingsUfc = () => {
 						>
 							<RankingList
 								division={item.categoryName}
+								championName={item.champion.championName}
 								fighters={item.fighters}
 							/>
 						</div>
