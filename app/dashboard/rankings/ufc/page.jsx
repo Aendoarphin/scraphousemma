@@ -26,6 +26,22 @@ const RankingsUfc = () => {
 		fetchData();
 	}, [filter]);
 
+	function getFilterLabels(rankingsData) {
+		// Check if rankingsData and rankingsData.content are defined
+		if (!rankingsData || !rankingsData.content || !Array.isArray(rankingsData.content)) {
+			return ["Error: Invalid data structure or missing content array."];
+		}
+	
+		// Extract category names
+		const categoryNames = rankingsData.content.map((item) =>
+			// Check if the item has a categoryName property
+			item && item.categoryName ? item.categoryName : null
+		).filter(Boolean); // Filter out any null values
+	
+		return categoryNames;
+	}
+	
+
 	const getFilter = (value) => {
 		setFilter(value);
 	};
@@ -35,27 +51,23 @@ const RankingsUfc = () => {
 			<div className="flex flex-row gap-2 justify-end">
 				<ItemFilter
 					resolvedFilter={getFilter}
-					filterItems={rankingsData.map((item) => item.categoryName)}
+					filterItems={getFilterLabels(rankingsData)}
 					initialValue={filter}
 				/>
 			</div>
-			{rankingsData.length !== 0 ? (
-				rankingsData.map((item, index) => {
-					return (
-						<div
-							key={index}
-							className={`${
-								item.categoryName === filter ? "visible" : "hidden"
-							}`}
-						>
-							<RankingList
-								division={item.categoryName}
-								championName={item.champion.championName}
-								fighters={item.fighters}
-							/>
-						</div>
-					);
-				})
+			{rankingsData.content && rankingsData.content.length  > 0 ? (
+				rankingsData.content.map((item, index) => (
+					<div
+						key={index}
+						className={`${item.categoryName === filter ? "visible" : "hidden"}`}
+					>
+						<RankingList
+							division={item.categoryName}
+							championName={item.champion.championName}
+							fighters={item.fighters}
+						/>
+					</div>
+				))
 			) : (
 				<div>nothing</div>
 			)}

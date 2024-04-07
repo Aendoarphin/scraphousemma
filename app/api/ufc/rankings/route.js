@@ -42,12 +42,12 @@ export const GET = async () => {
                     // If differences found, update the entire collection
                     await UfcRanking.deleteMany({});
                     await UfcRanking.insertMany(apiData);
-                    responseMessage = "Collection updated with new data";
+                    responseMessage = "Data was updated";
                     break;
                 }
             }
             if (!rankingsAreDifferent) {
-                responseMessage = "No changes made, existing data returned";
+                responseMessage = "Data already up-to-date";
             }
         }
 

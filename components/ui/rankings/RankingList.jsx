@@ -31,7 +31,7 @@ const RankingList = (props) => {
 							<RankingListItem
 								rank={"🏆"}
 								fighterName={props.championName}
-								style={"font-heading"}
+								style={"font-heading border-b border-white border-opacity-25"}
 							/>
 						) : null}
 						<RankingListItem rank={index} fighterName={fighter.name} />
