@@ -14,7 +14,7 @@ const Panel = (props) => {
 		"flex shadow-inner-soft cursor-pointer defaultTransition hover:scale-[102%] p-4 size-full bg-light-grey rounded-md dark:bg-dark-grey flex items-center justify-center";
 
 	return (
-		<Link href={"rankings/ufc"} className="flex flex-col gap-0">
+		<Link href={`rankings/${props.id}`} className="flex flex-col gap-0">
 			<div id={props.id} className={cardStyle}>
 				<Image
 					alt={props.alt}
