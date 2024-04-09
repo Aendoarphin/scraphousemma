@@ -5,6 +5,33 @@
   font-family: "ktn";
   src: url("../public/fonts/kill-the-noise.otf");
 }
+@media (max-height: 900px) {
+  .sm-height {
+    height: 140%;
+  }
+}
+.bghome1, .bghome2, .bghome3, .bgabout1 {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.bghome1 {
+  background-image: url("/images/diazmcgregor.png");
+}
+
+.bghome2 {
+  background-image: url("/images/jonesgustafsson.png");
+}
+
+.bghome3 {
+  background-image: url("/images/rodtangjohnson.png");
+}
+
+.bgabout1 {
+  background-image: url("/images/crowd.png");
+}
+
 .defaultTransition {
   transition: all 200ms ease-in;
 }

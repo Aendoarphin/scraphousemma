@@ -3,9 +3,9 @@ import { useState, useEffect, useRef } from "react";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
-	faBarsStaggered,
 	faUser,
 	faBars,
+	faClose,
 } from "@fortawesome/free-solid-svg-icons";
 import ThemeSwitch from "../util/ThemeSwitch";
 import Link from "next/link";
@@ -85,9 +85,8 @@ const Nav = () => {
 							isOpen ? "opacity-100" : "opacity-0"
 						}`}
 					>
-						<div className="flex flex-row justify-between w-full">
-							{isOpen && (
-								<>
+						<div className="flex flex-row justify-end w-full overflow-hidden">
+						<>
 									<Link
 										href={signedIn ? "/dashboard" : "/account/user"}
 										className="p-4 hover:underline defaultTransition"
@@ -103,11 +102,10 @@ const Nav = () => {
 										About
 									</Link>
 								</>
-							)}
 						</div>
 					</div>
 					<FontAwesomeIcon
-						icon={isOpen ? faBarsStaggered : faBars}
+						icon={isOpen ? faClose : faBars}
 						onClick={handleMenuClick}
 						className="hover:cursor-pointer"
 					/>

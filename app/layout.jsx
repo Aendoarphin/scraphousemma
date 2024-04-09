@@ -1,5 +1,6 @@
+"use client";
 // Next
-import { Nunito_Sans } from "next/font/google";
+import { Poppins } from "next/font/google";
 // Styles
 import "./globals.scss";
 // Light/Dark Mode
@@ -10,9 +11,10 @@ import Footer from "@/components/layout/Footer";
 // Font Awesome config
 import "@fortawesome/fontawesome-svg-core/styles.css";
 import { config } from "@fortawesome/fontawesome-svg-core";
+import { usePathname } from "next/navigation";
 config.autoAddCss = false;
 
-const nunitoSans = Nunito_Sans({ subsets: ["latin"] });
+const poppins = Poppins({ weight: "300", subsets: ["latin"] });
 
 /**
  * The application root.
@@ -20,7 +22,12 @@ const nunitoSans = Nunito_Sans({ subsets: ["latin"] });
 export default function RootLayout({ children }) {
 	return (
 		<html lang="en" suppressHydrationWarning>
-			<body className="flex flex-col justify-between min-h-screen">
+			<body
+				className={`flex flex-col justify-between min-h-screen ${
+					["/", "/about"].includes(usePathname()) ? "h-screen" : ""
+				} ${poppins.className}
+`}
+			>
 				<Providers>
 					<Nav />
 					<main>{children}</main>

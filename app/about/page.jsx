@@ -3,15 +3,8 @@ import Image from "next/image";
 const About = () => {
   return (
     <>
-      <Image
-        src={"/images/crowd.png"}
-        width={500}
-        height={500}
-        alt="background image 1"
-        className="blur-sm absolute size-[110%] object-center object-cover grayscale -z-10 opacity-5"
-      />
-      <div className="text-sm h-screen p-8 flex flex-wrap justify-center gap-6">
-        <div className="px-8 size-full flex flex-col justify-center gap-16">
+      <div className="text-sm h-screen flex flex-wrap justify-center gap-6 bgabout1">
+        <div className="px-10 size-full flex flex-col justify-center gap-16 backdrop-filter backdrop-blur-md backdrop-grayscale">
           <div className="flex flex-col gap-4 mx-10 lg:mx-40 xl:mx-96">
             <h1 className="font-heading text-4xl">About</h1>
             <p>

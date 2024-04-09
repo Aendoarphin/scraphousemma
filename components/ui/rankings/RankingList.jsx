@@ -5,13 +5,11 @@ const RankingListItem = (props) => {
 	let name = props.fighterName;
 
 	return (
-		<Link href="">
-			<li className={`flex flex-row gap-4 items-center p-2 ${props.style}`}>
+		<li className={`flex flex-row gap-4 items-center p-2 ${props.style}`}>
 				<h1 className={`font-heading w-6 text-center`}>{rank}</h1>
 				<hr className={`border-l border-white border-opacity-25 h-4`} />
-				<p>{name}</p>
+				<Link href={""}><p>{name}</p></Link>
 			</li>
-		</Link>
 	);
 };
 

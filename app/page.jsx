@@ -1,9 +1,9 @@
 // Icons
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
-  faCalendar,
-  faNewspaper,
-  faTrophy,
+	faCalendar,
+	faNewspaper,
+	faTrophy,
 } from "@fortawesome/free-solid-svg-icons";
 // Next
 import Image from "next/image";
@@ -16,23 +16,23 @@ import bellator from "@/public/logos/bellator.svg";
 import onefc from "@/public/logos/onefc.svg";
 
 const Feature = ({ icon, text }) => {
-  return (
-    <div className="flex flex-col gap-4 items-center">
-      <FontAwesomeIcon icon={icon} className="text-4xl" />
-      <p className="max-w-40">{text}</p>
-    </div>
-  );
+	return (
+		<div className="flex flex-col gap-4 items-center">
+			<FontAwesomeIcon icon={icon} className="text-4xl" />
+			<p className="max-w-40">{text}</p>
+		</div>
+	);
 };
 
 const Promotion = ({ alt, src }) => {
-  return (
-    <Image
-      alt={alt}
-      height={100}
-      src={src}
-      className="m-auto dark:invert-0 invert defaultTransition"
-    />
-  );
+	return (
+		<Image
+			alt={alt}
+			height={100}
+			src={src}
+			className="m-auto dark:invert-0 invert defaultTransition"
+		/>
+	);
 };
 
 /**
@@ -40,85 +40,72 @@ const Promotion = ({ alt, src }) => {
  * @returns JSX that contains content for the landing page
  */
 const Home = () => {
-  return (
-    <>
-      <Image
-        src={"/images/diazmcgregor.png"}
-        width={500}
-        height={500}
-        alt="background image 1"
-        className="blur-sm absolute size-full object-left object-cover grayscale -z-10 opacity-5"
-      />
-      <div className="text-sm h-screen p-8 text-center flex flex-wrap justify-center gap-6">
-        <div className="px-8 size-full flex flex-col justify-center gap-16">
-          <div className="flex flex-col gap-8">
-            <h1 className="font-heading text-4xl">Welcome</h1>
-            <p>
-              Dive in with ScrapHouse, your go-to platform offering insights
-              into the spectacular world of mixed martial arts
-            </p>
-          </div>
-          <div className="flex flex-col gap-8">
-            <h1 className=" font-heading text-4xl">Features</h1>
-            <div className="flex flex-col sm:flex-row gap-10 justify-center">
-              <Feature
-                icon={faNewspaper}
-                text="Stay up to date with the latest headlines from multiple sources"
-              />
-              <Feature
-                icon={faTrophy}
-                text="Explore the fighter directory and view the latest rankings"
-              />
-              <Feature
-                icon={faCalendar}
-                text="Stay ahead with our event guide and never miss a moment"
-              />
-            </div>
-          </div>
-        </div>
-      </div>
-      <Image
-        src={"/images/jonesgustafsson.png"}
-        width={500}
-        height={500}
-        alt="background image 2"
-        className="blur-sm absolute size-full object-center object-cover grayscale -z-10 opacity-5"
-      />
-      <div className="text-sm h-screen p-8 text-center flex flex-wrap justify-center gap-6">
-        <div className="px-8 size-full flex flex-col justify-around">
-          <div className="flex flex-col gap-8">
-            <h1 className="font-heading text-4xl">Promotions</h1>
-            <p>Get information from the most popular MMA fight promotions</p>
-            <div className="flex flex-col lg:flex-row lg:mx-auto gap-10">
-              <Promotion alt="ufc logo" src={ufc} />
-              <Promotion alt="pfl logo" src={pfl} />
-              <Promotion alt="bellator logo" src={bellator} />
-              <Promotion alt="onefc logo" src={onefc} />
-            </div>
-          </div>
-        </div>
-      </div>
-      <Image
-        src={"/images/rodtangjohnson.png"}
-        width={500}
-        height={500}
-        alt="background image 3"
-        className="blur-sm absolute size-[110%] object-top object-cover grayscale -z-10 opacity-5"
-      />
-      <div className="text-sm h-screen p-8 text-center flex flex-wrap justify-center gap-6">
-        <div className="px-8 size-full flex flex-col justify-around">
-          <div className="flex flex-col gap-8">
-            <h1 className="font-heading text-4xl">Join Us Today!</h1>
-            <p>
-              Discover the thrill of MMA with ScrapHouse. Sign up now for
-              exciting content, live updates, and more!
-            </p>
-            <Button text={"Get Started"} />
-          </div>
-        </div>
-      </div>
-    </>
-  );
+	return (
+		<>
+			{[
+				{
+					className: "bghome1",
+					title: "Welcome",
+					content:
+						"Dive in with ScrapHouse, your go-to platform offering insights into the spectacular world of mixed martial arts",
+					features: [
+						{
+							icon: faNewspaper,
+							text: "Stay up to date with the latest headlines from multiple sources",
+						},
+						{
+							icon: faTrophy,
+							text: "Explore the fighter directory and view the latest rankings",
+						},
+						{
+							icon: faCalendar,
+							text: "Stay ahead with our event guide and never miss a moment",
+						},
+					],
+				},
+				{
+					className: "bghome2",
+					title: "Promotions",
+					content: "Get information from the most popular MMA fight promotions",
+					promotions: [ufc, pfl, bellator, onefc].map((src, index) => (
+						<Promotion key={index} alt={`promotion logo ${index}`} src={src} />
+					)),
+				},
+				{
+					className: "bghome3",  
+					title: "Join Us Today!",
+					content:
+						"Discover the thrill of MMA with ScrapHouse. Sign up now for exciting content, live updates, and more!",
+					button: <Button text={"Get Started"} />,
+				},
+			].map((section, index) => (
+				<section
+					key={index}
+					className={`text-sm min-h-screen text-center flex flex-wrap justify-center gap-6 ${section.className}`}
+				>
+					<div className="w-full mx-auto p-8 flex flex-col justify-center gap-16 backdrop-filter backdrop-blur-md backdrop-grayscale">
+						<div className="flex flex-col gap-8">
+							<h1 className="font-heading text-4xl">{section.title}</h1>
+							<p>{section.content}</p>
+							{section.features && (
+								<div className="flex flex-col sm:flex-row gap-10 justify-center">
+									{section.features.map(({ icon, text }, index) => (
+										<Feature key={index} icon={icon} text={text} />
+									))}
+								</div>
+							)}
+							{section.promotions && (
+								<div className="flex flex-col lg:flex-row lg:mx-auto gap-10">
+									{section.promotions}
+								</div>
+							)}
+							{section.button && <div>{section.button}</div>}
+						</div>
+					</div>
+				</section>
+			))}
+		</>
+	);
 };
 
 export default Home;
