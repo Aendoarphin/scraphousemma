@@ -6,47 +6,42 @@ import { fetchAPI } from "@/scripts/util";
 connectToDatabase();
 
 export async function GET() {
-	try {
-		let responseMessage = "";
-		const dbData = await UfcRanking.find({}); // Array
-		const apiData = await fetchAPI("https://api.octagon-api.com/rankings"); // Array
+  try {
+      let responseMessage = "";
+      const dbData = await UfcRanking.find({}); // Array
+      const apiData = await fetchAPI("https://api.octagon-api.com/rankings"); // Array
 
-		// Check if the collection exists in the database
-		if (dbData.length === 0) {
-			// If collection is empty, insert data from API
-			await UfcRanking.insertMany(apiData);
-			responseMessage = "Collection created and populated with API data";
-		} else {
-			// If collection is not empty, compare API data with database data
-			let rankingsAreDifferent = false;
-			for (let i = 0; i < dbData.length; i++) {
-				for (let j = 0; j < dbData[i].fighters.length; j++) {
-					if (dbData[i].fighters[j].name !== apiData[i].fighters[j].name) {
-						rankingsAreDifferent = true;
-						break;
-					}
-				}
-				if (rankingsAreDifferent) {
-					// If differences found, update the entire collection
-					await UfcRanking.deleteMany({});
-					await UfcRanking.insertMany(apiData);
-					responseMessage = "Data was updated";
-					break;
-				}
-			}
-			if (!rankingsAreDifferent) {
-				responseMessage = "Data already up-to-date";
-			}
-		}
+      // Check if the collection exists in the database
+      if (dbData.length === 0 || !isEqual(dbData, apiData)) {
+          // If collection is empty or data differs, update the entire collection
+          await UfcRanking.deleteMany({});
+          await UfcRanking.insertMany(apiData);
+          responseMessage = "Collection updated with API data";
+      } else {
+          responseMessage = "Data is up-to-date";
+      }
 
-		return NextResponse.json(
-			{ message: responseMessage, content: await UfcRanking.find({}) },
-			{ statusText: 200 }
-		);
-	} catch (error) {
-		return NextResponse.json(
-			{ message: "An error occurred: " + error.message },
-			{ statusText: 500 }
-		);
-	}
-};
+      return NextResponse.json(
+          { message: responseMessage, content: await UfcRanking.find({}) },
+          { statusText: 200 }
+      );
+  } catch (error) {
+      // Log the error for better debugging
+      console.error("An error occurred:", error.message);
+      return NextResponse.json(
+          { message: "An error occurred: " + error.message },
+          { statusText: 500 }
+      );
+  }
+}
+
+function isEqual(arr1, arr2) {
+  if (arr1.length !== arr2.length) return false;
+  for (let i = 0; i < arr1.length; i++) {
+      if (!arr1[i].fighters.every((fighter, index) => fighter.name === arr2[i].fighters[index].name)) {
+          return false;
+      }
+  }
+  return true;
+}
+

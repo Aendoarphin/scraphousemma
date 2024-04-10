@@ -15,7 +15,7 @@ const RankingListItem = (props) => {
 
 const RankingList = (props) => {
 	return (
-		<ul className="bg-light-grey dark:bg-dark-grey p-4 rounded-md">
+		<ul className="bg-light-grey dark:bg-dark-grey p-8 rounded-md">
 			<h1 className="font-heading">{props.division}</h1>
 			{props.fighters.map((fighter, index) => {
 				return (
