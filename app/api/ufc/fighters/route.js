@@ -11,29 +11,18 @@ export async function GET() {
 		const dbData = await UfcFighter.find({});
 		let responseMessage = "";
 
-		const fighterIds = Object.keys(apiData);
 		const dbFighterIds = Object.keys(dbData);
 
-		// // Check if both arrs have same length and same value
-		// if (
-		// 	fighterIds.length === dbFighterIds.length &&
-		// 	fighterIds.every((value, index) => value === dbData[index])
-		// ) {
-		// 	responseMessage = "Data is up-to-date.";
-		// } else {
-    //   // Clear the collection
-    //   await UfcFighter.deleteMany({});
-		// 	// Add API data to db
-		// 	await UfcFighter.insertMany(apiData.map((key) => {
-    //     return key;
-    //   }));
-    //   responseMessage = "Collection updated with API data";
-		// }
+		const fighterIds = Object.keys(apiData); // ["one", "two", ...]
 
-		return NextResponse.json(
-			{ content: apiData },
-			{ statusText: 200 }
-		);
+		// Assigns key names of apiData to new 'id' property of each apiData value
+		fighterIds.forEach((keyName) => {
+			apiData[keyName].fighterId = keyName;
+		});
+		console.log(Object.values(apiData))
+		// await UfcFighter.insertMany(Object.values(apiData))
+
+		return NextResponse.json({ content: apiData }, { statusText: 200 });
 	} catch (error) {
 		return NextResponse.json(
 			{ message: "An error occured: " + error.message },
