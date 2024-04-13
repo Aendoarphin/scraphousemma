@@ -11,18 +11,28 @@ export async function GET() {
 		const dbData = await UfcFighter.find({});
 		let responseMessage = "";
 
-		const dbFighterIds = Object.keys(dbData);
+		// const dbFighterIds = Object.keys(dbData);
 
-		const fighterIds = Object.keys(apiData); // ["one", "two", ...]
+		const fighterIds = Object.keys(apiData);
 
-		// Assigns key names of apiData to new 'id' property of each apiData value
+		let transformedData = {};
+
+		// Assigns key names of external obj to new 'id' property of each apiData value
 		fighterIds.forEach((keyName) => {
-			apiData[keyName].fighterId = keyName;
+			let fighterDetails = {};
+			fighterDetails.id = keyName;
+			fighterDetails.details = apiData[keyName];
+			transformedData[keyName] = fighterDetails;
 		});
-		console.log(Object.values(apiData))
-		// await UfcFighter.insertMany(Object.values(apiData))
 
-		return NextResponse.json({ content: apiData }, { statusText: 200 });
+		console.log(transformedData);
+
+		await UfcFighter.insertMany(Object.values(transformedData))
+
+		return NextResponse.json(
+			{ content: await UfcFighter.find({id: "alexander-volkanovski"}) },
+			{ statusText: 200 }
+		);
 	} catch (error) {
 		return NextResponse.json(
 			{ message: "An error occured: " + error.message },
