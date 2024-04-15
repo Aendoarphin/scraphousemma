@@ -1,36 +1,53 @@
 import UfcFighter from "@/lib/mongodb/models/UfcFighter";
 import { NextResponse } from "next/server";
 import connectToDatabase from "@/lib/mongodb/connect";
-import { fetchAPI } from "@/scripts/util";
+import { fetchAPI, getCountryName } from "@/scripts/util";
 
 connectToDatabase();
+
+function areEqual(prevWins, newWins) {
+	if (prevWins.length !== newWins.length) {
+		return false;
+	}
+	return prevWins.every((element, index) => element === newWins[index]);
+}
+
+	// Assign fetched key names to new 'id' field
+	// Assign fetched values to new 'details' field
+function reformat(keysArr, apiDataObj) {
+	let transformedData = {};
+	keysArr.forEach((keyName) => {
+		let fighterDetails = {};
+		fighterDetails.id = keyName;
+		fighterDetails.details = apiDataObj[keyName];
+		transformedData[keyName] = fighterDetails;
+	});
+	return Object.values(transformedData);
+}
 
 export async function GET() {
 	try {
 		const apiData = await fetchAPI("https://api.octagon-api.com/fighters");
-		const dbData = await UfcFighter.find({});
 		let responseMessage = "";
-
-		// const dbFighterIds = Object.keys(dbData);
 
 		const fighterIds = Object.keys(apiData);
 
-		let transformedData = {};
+		const newData = reformat(fighterIds, apiData);
+		const oldData = await UfcFighter.find({});
 
-		// Assigns key names of external obj to new 'id' property of each apiData value
-		fighterIds.forEach((keyName) => {
-			let fighterDetails = {};
-			fighterDetails.id = keyName;
-			fighterDetails.details = apiData[keyName];
-			transformedData[keyName] = fighterDetails;
-		});
+		const prevFighterData = oldData.map((obj) => obj.details.wins);
+		const nextFighterData = newData.map((obj) => obj.details.wins);
 
-		console.log(transformedData);
-
-		await UfcFighter.insertMany(Object.values(transformedData))
+		if (!areEqual(prevFighterData, nextFighterData)) {
+			await UfcFighter.deleteMany({});
+			await UfcFighter.insertMany(newData);
+			responseMessage = "Collection updated: " + UfcFighter.modelName;
+		} else {
+			responseMessage = "Data is up-to-date: " + UfcFighter.modelName;
+		}
 
 		return NextResponse.json(
-			{ content: await UfcFighter.find({id: "alexander-volkanovski"}) },
+			{ message: responseMessage, content: await UfcFighter.find({}) },
 			{ statusText: 200 }
 		);
 	} catch (error) {

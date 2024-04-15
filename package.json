@@ -15,6 +15,7 @@
     "@fortawesome/react-fontawesome": "^0.2.0",
     "@types/mongoose": "^5.11.97",
     "axios": "^1.6.8",
+    "country-codes-list": "^1.6.11",
     "dompurify": "^3.0.9",
     "mongodb": "^6.5.0",
     "mongoose": "^8.2.4",

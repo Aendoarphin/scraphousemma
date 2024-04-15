@@ -11,9 +11,7 @@ export async function GET() {
 		const dbData = await UfcRanking.find({}); // Array
 		const apiData = await fetchAPI("https://api.octagon-api.com/rankings"); // Array
 
-		// Check if the collection exists in the database
 		if (dbData.length === 0 || !isEqual(dbData, apiData)) {
-			// If collection is empty or data differs, update the entire collection
 			await UfcRanking.deleteMany({});
 			await UfcRanking.insertMany(apiData);
 			responseMessage = "Collection updated with API data";
@@ -26,7 +24,6 @@ export async function GET() {
 			{ statusText: 200 }
 		);
 	} catch (error) {
-		// Log the error for better debugging
 		console.error("An error occurred:", error.message);
 		return NextResponse.json(
 			{ message: "An error occurred: " + error.message },
