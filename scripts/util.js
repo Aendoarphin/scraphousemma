@@ -14,7 +14,7 @@ export async function fetchAPI(url) {
 		}
 		return response.data;
 	} catch (error) {
-		console.error("Error fetching rankings: ", error);
+		console.error("Error fetching: ", error);
 		throw error;
 	}
 }

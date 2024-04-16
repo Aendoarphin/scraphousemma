@@ -2,6 +2,7 @@ import UfcFighter from "@/lib/mongodb/models/UfcFighter";
 import { NextResponse } from "next/server";
 import connectToDatabase from "@/lib/mongodb/connect";
 import { fetchAPI, getCountryName } from "@/scripts/util";
+import countries from "country-codes-list"
 
 connectToDatabase();
 
@@ -56,4 +57,8 @@ export async function GET() {
 			{ statusText: 500 }
 		);
 	}
-}
+} 
+
+const countryObj = countries.customList("countryNameEn", "{countryCode}")
+
+console.log(countryObj["United Kingdom"])
