@@ -46,7 +46,7 @@ const ItemFilter = (props) => {
 	return (
 		<div className="flex justify-end" ref={node}>
 			<button
-				className="self-center p-2 rounded-md bg-light-grey dark:bg-dark-grey defaultTransition"
+				className="self-center p-2 rounded-md bg-light-grey dark:bg-dark-grey shadow-inner-soft defaultTransition"
 				onClick={handleFilterClick}
 			>
 				<div
@@ -57,7 +57,7 @@ const ItemFilter = (props) => {
 				</div>
 			</button>
 			{filterIsOpen && (
-				<div className=" absolute flex flex-col gap-2 p-2 bg-light-grey dark:bg-dark-grey rounded-md dark:shadow-black shadow-md translate-y-12">
+				<div className=" absolute flex flex-col gap-2 p-2 bg-light-grey dark:bg-dark-grey rounded-md dark:shadow-black shadow-inner-soft translate-y-14">
 					{Object.keys(props.filterItems).map((key) => (
 						<button
 							key={key}

@@ -79,7 +79,7 @@ const SavedItems = () => {
 						})}
 					</div>
 				) : (
-					<div className="h-full flex bg-dark-grey rounded-md items-center">
+					<div className="h-full flex shadow-inner-soft bg-light-grey dark:bg-dark-grey defaultTransition rounded-md items-center">
 						<h1 className="mx-auto flex flex-col text-xl opacity-50">
 							No Saved Items
 						</h1>

@@ -5,6 +5,20 @@ import { fetchAPI } from "@/scripts/util";
 
 connectToDatabase();
 
+function isEqual(arr1, arr2) {
+	if (arr1.length !== arr2.length) return false;
+	for (let i = 0; i < arr1.length; i++) {
+		if (
+			!arr1[i].fighters.every(
+				(fighter, index) => fighter.name === arr2[i].fighters[index].name
+			)
+		) {
+			return false;
+		}
+	}
+	return true;
+}
+
 export async function GET() {
 	try {
 		let responseMessage = "";
@@ -30,18 +44,4 @@ export async function GET() {
 			{ statusText: 500 }
 		);
 	}
-}
-
-function isEqual(arr1, arr2) {
-	if (arr1.length !== arr2.length) return false;
-	for (let i = 0; i < arr1.length; i++) {
-		if (
-			!arr1[i].fighters.every(
-				(fighter, index) => fighter.name === arr2[i].fighters[index].name
-			)
-		) {
-			return false;
-		}
-	}
-	return true;
 }

@@ -1,23 +1,17 @@
 "use client";
 import ItemFilter from "@/components/ui/ItemFilter";
 import RankingList from "@/components/ui/rankings/RankingList";
+import { fetchAPI } from "@/scripts/util";
 import { useEffect, useState } from "react";
 
 const RankingsUfc = () => {
-  const getRankings = async () => {
-    const res = await fetch("http://localhost:3000/api/ufc/rankings/", {
-      method: "GET",
-    });
-    return res.json();
-  };
-
   const [rankingsData, setRankingsData] = useState([]);
   const [filter, setFilter] = useState("Men's Pound-for-Pound Top Rank");
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const ufcRankings = await getRankings();
+        const ufcRankings = await fetchAPI("http://localhost:3000/api/ufc/rankings/");
         setRankingsData(ufcRankings);
       } catch (error) {
         console.error("Error fetching rankings:", error);
