@@ -15,7 +15,7 @@ const countryCodes = countries.customList("countryNameEn", "{countryCode}");
  * @param {Array<Object>} newRecord New records of each fighter.
  * @returns {boolean} True if the record values stay the same, false otherwise.
  */
-export function areEqual(prevRecord, newRecord) {
+function areEqual(prevRecord, newRecord) {
 	if (prevRecord.length !== newRecord.length) {
 		return false;
 	}
@@ -57,6 +57,12 @@ function getCountryName(location = "") {
 		case "England":
 			countryName = "United Kingdom";
 			break;
+		case "Czechia":
+			countryName = "Czech Republic";
+			break;
+		case "Scotland":
+			countryName = "United Kingdom";
+			break;
 		default:
 			break;
 	}
@@ -65,11 +71,11 @@ function getCountryName(location = "") {
 }
 
 /**
- * Reformats external API obj
+ * Reformats external API object.
  *
- * @param {Array<String>} keysArr
- * @param {object} apiDataObj
- * @returns An object array representing a fighter
+ * @param {Array<String>} keysArr - Array of fighter IDs.
+ * @param {object} apiDataObj - Object containing fighter data.
+ * @returns {Array<Object>} - Array of reformatted fighter objects.
  */
 function reformatObj(keysArr, apiDataObj) {
 	let transformedData = {};
@@ -77,18 +83,21 @@ function reformatObj(keysArr, apiDataObj) {
 		let fighterDetails = {};
 		fighterDetails.id = keyName;
 		fighterDetails.details = apiDataObj[keyName];
-		fighterDetails.details.flag =
-			countryCodes[getCountryName(fighterDetails.details.placeOfBirth)];
+
+		// Get country code based on place of birth
+		const countryName = getCountryName(fighterDetails.details.placeOfBirth);
+		fighterDetails.details.flag = countryCodes[countryName] || ""; // Default to empty string if country code not found
+
 		transformedData[keyName] = fighterDetails;
 	});
 	return Object.values(transformedData);
 }
 
 /**
- * Internal endpoint for receiving all UFC fighters
+ * Internal endpoint for receiving all UFC fighters.
  *
  * Endpoint: `/api/ufc/fighters`
- * @returns {Promise<{ message: string, content: Array<Object> | Object }>} A promise resolving to an object containing a message and content
+ * @returns {Promise<{ message: string, content: Array<Object> | Object }>} - A promise resolving to an object containing a message and content.
  */
 export async function GET() {
 	try {
@@ -96,10 +105,9 @@ export async function GET() {
 		let responseMessage = "";
 
 		const fighterIds = Object.keys(apiData);
-
 		const newData = reformatObj(fighterIds, apiData);
-		const oldData = await UfcFighter.find({});
 
+		const oldData = await UfcFighter.find({});
 		const prevFighterData = oldData.map((obj) => obj);
 		const newFighterData = newData.map((obj) => obj);
 
@@ -117,7 +125,7 @@ export async function GET() {
 		);
 	} catch (error) {
 		return NextResponse.json(
-			{ message: "An error occured: " + error.stack },
+			{ message: "An error occurred: " + error.message },
 			{ statusText: 500 }
 		);
 	}
