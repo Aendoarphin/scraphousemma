@@ -28,7 +28,6 @@ const RankingsUfc = () => {
 	}, [filter]);
 
 	function getFilterLabels(rankingsData) {
-		// Check if rankingsData and rankingsData.content are defined
 		if (
 			!rankingsData ||
 			!rankingsData.content ||
@@ -37,14 +36,9 @@ const RankingsUfc = () => {
 			return ["Error: Invalid data structure or missing content array."];
 		}
 
-		// Extract category names
 		const categoryNames = rankingsData.content
-			.map((item) =>
-				// Check if the item has a categoryName property
-				item && item.categoryName ? item.categoryName : null
-			)
-			.filter(Boolean); // Filter out any null values
-
+			.map((item) => (item && item.categoryName ? item.categoryName : null))
+			.filter(Boolean);
 		return categoryNames;
 	}
 
@@ -52,9 +46,12 @@ const RankingsUfc = () => {
 		setFilter(value);
 	};
 
-	const resolvedFlags = fightersData.map((obj) => ({
-		name: obj.details.name,
-		flag: obj.details.flag,
+	const resolvedFighterData = fightersData.map(({ details }) => ({
+		name: details.name,
+		flag: details.flag,
+		wins: details.wins,
+		losses: details.losses,
+		draws: details.draws,
 	}));
 
 	return (
@@ -79,7 +76,7 @@ const RankingsUfc = () => {
 							division={item.categoryName}
 							championName={item.champion.championName}
 							fighters={item.fighters}
-							resolvedFlags={resolvedFlags}
+							fighterInfo={resolvedFighterData}
 						/>
 					</div>
 				))}

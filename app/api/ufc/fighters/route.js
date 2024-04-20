@@ -49,19 +49,18 @@ function getCountryName(location = "") {
 			countryName = location;
 		}
 	}
-
 	switch (countryName) {
 		case "United States":
 			countryName += " of America";
 			break;
 		case "England":
+		case "Scotland":
+		case "Wales":
+		case "Northern Ireland":
 			countryName = "United Kingdom";
 			break;
 		case "Czechia":
 			countryName = "Czech Republic";
-			break;
-		case "Scotland":
-			countryName = "United Kingdom";
 			break;
 		default:
 			break;
@@ -118,7 +117,6 @@ export async function GET() {
 		} else {
 			responseMessage = "Data is up-to-date: " + UfcFighter.modelName;
 		}
-
 		return NextResponse.json(
 			{ message: responseMessage, content: await UfcFighter.find({}) },
 			{ statusText: 200 }
