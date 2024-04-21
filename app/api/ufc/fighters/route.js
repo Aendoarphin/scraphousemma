@@ -85,7 +85,7 @@ function reformatObj(keysArr, apiDataObj) {
 
 		// Get country code based on place of birth
 		const countryName = getCountryName(fighterDetails.details.placeOfBirth);
-		fighterDetails.details.flag = countryCodes[countryName] || ""; // Default to empty string if country code not found
+		fighterDetails.details.flag = countryCodes[countryName] || "";
 
 		transformedData[keyName] = fighterDetails;
 	});
@@ -96,7 +96,7 @@ function reformatObj(keysArr, apiDataObj) {
  * Internal endpoint for receiving all UFC fighters.
  *
  * Endpoint: `/api/ufc/fighters`
- * @returns {Promise<{ message: string, content: Array<Object> | Object }>} - A promise resolving to an object containing a message and content.
+ * @returns {Promise<{ message: string, content: Array<Object> | Object }>}
  */
 export async function GET() {
 	try {

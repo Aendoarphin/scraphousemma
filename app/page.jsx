@@ -8,7 +8,7 @@ import {
 // Next
 import Image from "next/image";
 // Components
-import Button from "@/components/ui/Button";
+import Button from "@/components/Button";
 // Static files
 import ufc from "@/public/logos/ufc.svg";
 import pfl from "@/public/logos/pfl.svg";

@@ -1,6 +1,6 @@
 "use client";
-import ItemFilter from "@/components/ui/ItemFilter";
-import RankingList from "@/components/ui/rankings/RankingList";
+import ItemFilter from "@/components/ItemFilter";
+import RankingList from "@/components/rankings/RankingList";
 import { fetchAPI } from "@/scripts/util";
 import { useEffect, useState } from "react";
 

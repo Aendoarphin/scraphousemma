@@ -11,9 +11,9 @@ import {
     faNewspaper,
 } from "@fortawesome/free-solid-svg-icons";
 // Components
-import NewsItem from "@/components/ui/news/NewsItem";
-import NewsGrid from "@/components/ui/news/NewsGrid";
-import Pagination from "@/components/ui/Pagination";
+import NewsItem from "@/components/news/NewsItem";
+import NewsGrid from "@/components/news/NewsGrid";
+import Pagination from "@/components/Pagination";
 // Static data
 import { sampleNewsData } from "@/constants";
 /**

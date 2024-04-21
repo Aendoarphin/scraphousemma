@@ -1,4 +1,4 @@
-import AccountForm from "@/components/ui/AccountForm";
+import AccountForm from "@/components/AccountForm";
 
 const User = () => {
 	return (

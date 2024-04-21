@@ -8,7 +8,7 @@ import { filterItems, savedItems } from "@/constants";
 import Image from "next/image";
 // Hooks
 import { useState } from "react";
-import ItemFilter from "@/components/ui/ItemFilter";
+import ItemFilter from "@/components/ItemFilter";
 
 const SavedItems = () => {
 	const [hasSavedItems] = useState(savedItems.items.length > 0);

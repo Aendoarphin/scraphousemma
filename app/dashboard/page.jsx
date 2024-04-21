@@ -1,7 +1,7 @@
 "use client";
 // Components
-import SavedItems from "@/components/ui/dashboard/SavedItems";
-import User from "@/components/ui/dashboard/User";
+import SavedItems from "@/components/dashboard/SavedItems";
+import User from "@/components/dashboard/User";
 /**
  * 
  * @returns JSX that contains user dashboard content

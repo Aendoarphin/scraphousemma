@@ -39,7 +39,7 @@ const DashboardNav = () => {
 			<h1 className="text-xl py-2 font-heading">Dashboard</h1>
 			<div className="flex flex-row justify-center rounded-md overflow-clip bg-light-grey dark:bg-dark-grey shadow-inner-soft defaultTransition">
 				{Object.entries(icons).map(([key, icon]) => (
-					<Link key={key} href={`/dashboard/${key}`} className="w-full">
+					<Link key={key} href={`/dashboard/${key}`} className="w-full" onClick={() => window.scrollTo(0, 0)}>
 						<button
 							className="w-full p-4 hover:bg-black hover:text-white hover:dark:bg-white hover:dark:text-black defaultTransition"
 							onMouseEnter={() => handleHover(icon)}
