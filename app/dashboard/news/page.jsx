@@ -1,26 +1,37 @@
 "use client";
-// Hooks
-import { useState } from "react";
-// Next
+import { useEffect, useState } from "react";
 import Link from "next/link";
-// Icons
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
-    faArrowAltCircleLeft,
-    faArrowAltCircleRight,
-    faNewspaper,
+	faArrowAltCircleLeft,
+	faArrowAltCircleRight,
+	faFireAlt,
 } from "@fortawesome/free-solid-svg-icons";
-// Components
 import NewsItem from "@/components/news/NewsItem";
 import NewsGrid from "@/components/news/NewsGrid";
 import Pagination from "@/components/Pagination";
-// Static data
 import { sampleNewsData } from "@/constants";
+import { useRouter } from "next/navigation";
+import { useUser } from "@auth0/nextjs-auth0/client";
 /**
- * 
+ *
  * @returns JSX that contains news content
  */
 const News = () => {
+	const { user } = useUser();
+	const router = useRouter();
+	const [currentPage, setCurrentPage] = useState(0);
+
+	useEffect(() => {
+		if (!user) {
+			router.push("/api/auth/login");
+		}
+	}, [user, router]);
+
+	if (!user) {
+		return null;
+	}
+
 	let topStories = sampleNewsData.slice(0, 3);
 	let otherStories = sampleNewsData.slice(3);
 	let groupStories = [];
@@ -37,8 +48,6 @@ const News = () => {
 	if (articleGroup.length > 0) {
 		groupStories.push(articleGroup);
 	}
-
-	const [currentPage, setCurrentPage] = useState(0);
 
 	const handlePageClick = (pageGroupIndex) => {
 		setCurrentPage(pageGroupIndex);
@@ -58,13 +67,16 @@ const News = () => {
 	return (
 		<div className="flex flex-col gap-4">
 			<div className="font-heading col-span-2 text-xl">
-				<FontAwesomeIcon icon={faNewspaper} /> Top News
+				<FontAwesomeIcon icon={faFireAlt} /> Top News
 			</div>
-			<NewsGrid topNews={topStories}/>
+			<NewsGrid topNews={topStories} />
 			<div className="font-heading text-xl">Other News</div>
 			<div id="news-item-list" className="flex flex-col gap-4">
 				{groupStories[currentPage].map((item, index) => (
-					<Link key={index} href={`news/${item.articleId}/${item.name}/${item.publishedDate}/${item.source}/${item.image}`}>
+					<Link
+						key={index}
+						href={`news/${item.articleId}/${item.name}/${item.publishedDate}/${item.source}/${item.image}`}
+					>
 						<NewsItem
 							name={item.name}
 							publishedDate={item.publishedDate}

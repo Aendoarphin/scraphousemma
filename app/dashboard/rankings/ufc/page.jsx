@@ -3,14 +3,26 @@ import ItemFilter from "@/components/ItemFilter";
 import RankingList from "@/components/rankings/RankingList";
 import { fetchAPI } from "@/scripts/util";
 import { useEffect, useState } from "react";
+import { useUser } from "@auth0/nextjs-auth0/client";
+import { useRouter } from "next/navigation";
 
 const RankingsUfc = () => {
+	const { user } = useUser();
+	const router = useRouter();
+
 	const [rankingsData, setRankingsData] = useState([]);
 	const [filter, setFilter] = useState("Men's Pound-for-Pound Top Rank");
 	const [fightersData, setFightersData] = useState([]);
 
 	useEffect(() => {
 		const fetchData = async () => {
+			if (!user) {
+				router.push("/api/auth/login");
+			}
+
+			if (!user) {
+				return null;
+			}
 			try {
 				const ufcRankings = await fetchAPI(
 					"http://localhost:3000/api/ufc/rankings/"
@@ -25,7 +37,7 @@ const RankingsUfc = () => {
 			}
 		};
 		fetchData();
-	}, [filter]);
+	}, [filter, user, router]);
 
 	function getFilterLabels(rankingsData) {
 		if (

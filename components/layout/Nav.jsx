@@ -2,20 +2,18 @@
 import { useState, useEffect, useRef } from "react";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-	faUser,
-	faBars,
-	faClose,
-} from "@fortawesome/free-solid-svg-icons";
+import { faUser, faBars, faClose } from "@fortawesome/free-solid-svg-icons";
 import ThemeSwitch from "../util/ThemeSwitch";
 import Link from "next/link";
+import Image from "next/image";
+import { useUser } from "@auth0/nextjs-auth0/client";
 
 const Nav = () => {
 	const [isOpen, setIsOpen] = useState(false);
-	const [signedIn, setSignedIn] = useState(true);
 	const [visible, setVisible] = useState(true);
 	const [prevScrollPos, setPrevScrollPos] = useState(0);
 
+	const { user, isLoading } = useUser();
 	const navRef = useRef(null);
 
 	// Expand/collapse links
@@ -79,40 +77,54 @@ const Nav = () => {
 						H<span className="hidden lg:inline">ouse</span>
 					</span>
 				</Link>
-				<div id="links" className="flex flex-wrap items-center gap-6 text-sm">
-					<div
-						className={`defaultTransition ${
-							isOpen ? "opacity-100" : "opacity-0"
-						}`}
-					>
+				<div
+					id="links"
+					className="flex items-center gap-3 sm:gap-6 text-sm w-min flex-nowrap justify-end"
+				>
+					<div className={`defaultTransition ${isOpen ? "visible" : "hidden"}`}>
 						<div className="flex flex-row justify-end w-full overflow-hidden">
-						<>
-									<Link
-										href={signedIn ? "/dashboard" : "/account/user"}
-										className="p-4 hover:underline defaultTransition"
-										onClick={handleMenuClick}
-									>
-										Dashboard
-									</Link>
-									<Link
-										href="/about"
-										className="p-4 hover:underline defaultTransition"
-										onClick={handleMenuClick}
-									>
-										About
-									</Link>
-								</>
+							<>
+								<Link
+									href={user && !isLoading ? "/dashboard" : "/api/auth/login"}
+									className="p-4 hover:underline defaultTransition"
+									onClick={handleMenuClick}
+								>
+									Dashboard
+								</Link>
+								<Link
+									href="/about"
+									className="p-4 hover:underline defaultTransition"
+									onClick={handleMenuClick}
+								>
+									About
+								</Link>
+							</>
 						</div>
 					</div>
-					<FontAwesomeIcon
-						icon={isOpen ? faClose : faBars}
-						onClick={handleMenuClick}
-						className="hover:cursor-pointer"
-					/>
-					<Link id="account" href={signedIn ? "/dashboard" : "/account/user"}>
-						<FontAwesomeIcon icon={faUser} />
-					</Link>
-					<ThemeSwitch />
+					<div className="flex flex-row items-center gap-4 md:gap-6">
+						<FontAwesomeIcon
+							icon={isOpen ? faClose : faBars}
+							onClick={handleMenuClick}
+							className="hover:cursor-pointer"
+						/>
+						<Link
+							id="account"
+							href={user && !isLoading ? "/dashboard" : "/api/auth/login"}
+							className="min-w-7 min-h-7 relative flex items-center justify-center"
+						>
+							{user && !isLoading ? (
+								<Image
+									alt=""
+									fill
+									src={user.picture}
+									className="object-scale-down max-w-10 max-h-10 rounded-full"
+								></Image>
+							) : (
+								<FontAwesomeIcon icon={faUser} />
+							)}
+						</Link>
+						<ThemeSwitch />
+					</div>
 				</div>
 			</div>
 		</div>

@@ -29,7 +29,7 @@ const Panel = (props) => {
 
 const Rankings = async () => {
 	return (
-		<div className="flex flex-col justify-center gap-4">
+		<div className="flex flex-col justify-center gap-4 pb-1">
 			<Panel id="ufc" alt="ufc logo" src={ufc}/>
 			<Panel id="onefc" alt="onefc logo" src={onefc} />
 			<Panel id="bellator" alt="bellator logo" src={bellator} />

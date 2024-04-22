@@ -3,8 +3,9 @@
 import { Poppins } from "next/font/google";
 // Styles
 import "./globals.scss";
-// Light/Dark Mode
+// Providers
 import { Providers } from "./providers";
+import { UserProvider } from "@auth0/nextjs-auth0/client";
 // Components
 import Nav from "@/components/layout/Nav";
 import Footer from "@/components/layout/Footer";
@@ -22,18 +23,20 @@ const poppins = Poppins({ weight: "300", subsets: ["latin"] });
 export default function RootLayout({ children }) {
 	return (
 		<html lang="en" suppressHydrationWarning>
-			<body
-				className={`flex flex-col justify-between min-h-screen ${
-					["/", "/about"].includes(usePathname()) ? "h-screen" : ""
-				} ${poppins.className}
+			<UserProvider>
+				<body
+					className={`flex flex-col justify-between min-h-screen ${
+						["/", "/about"].includes(usePathname()) ? "h-screen" : ""
+					} ${poppins.className}
 `}
-			>
-				<Providers>
-					<Nav />
-					<main>{children}</main>
-					<Footer />
-				</Providers>
-			</body>
+				>
+					<Providers>
+						<Nav />
+						<main>{children}</main>
+						<Footer />
+					</Providers>
+				</body>
+			</UserProvider>
 		</html>
 	);
 }
