@@ -112,9 +112,9 @@ const Nav = () => {
 							href={user && !isLoading ? "/dashboard" : "/api/auth/login"}
 							className="min-w-7 min-h-7 relative flex items-center justify-center"
 						>
-							{user && !isLoading ? (
+							{user ? (
 								<Image
-									alt=""
+									alt={user.name}
 									fill
 									src={user.picture}
 									className="object-scale-down max-w-10 max-h-10 rounded-full"

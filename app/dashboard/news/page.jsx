@@ -11,27 +11,13 @@ import NewsItem from "@/components/news/NewsItem";
 import NewsGrid from "@/components/news/NewsGrid";
 import Pagination from "@/components/Pagination";
 import { sampleNewsData } from "@/constants";
-import { useRouter } from "next/navigation";
-import { useUser } from "@auth0/nextjs-auth0/client";
 /**
  *
  * @returns JSX that contains news content
  */
 const News = () => {
-	const { user } = useUser();
-	const router = useRouter();
 	const [currentPage, setCurrentPage] = useState(0);
-
-	useEffect(() => {
-		if (!user) {
-			router.push("/api/auth/login");
-		}
-	}, [user, router]);
-
-	if (!user) {
-		return null;
-	}
-
+	
 	let topStories = sampleNewsData.slice(0, 3);
 	let otherStories = sampleNewsData.slice(3);
 	let groupStories = [];
