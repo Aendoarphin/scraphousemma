@@ -18,6 +18,10 @@ const nextConfig = {
 				protocol: "https",
 				hostname: "s.gravatar.com",
 			},
+			{
+				protocol: "https",
+				hostname: "s.yimg.com",
+			},
 		],
 	},
 };
