@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Link from "next/link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -11,10 +11,7 @@ import NewsItem from "@/components/news/NewsItem";
 import NewsGrid from "@/components/news/NewsGrid";
 import Pagination from "@/components/Pagination";
 import { sampleNewsData } from "@/constants";
-/**
- *
- * @returns JSX that contains news content
- */
+
 const News = () => {
 	const [currentPage, setCurrentPage] = useState(0);
 	

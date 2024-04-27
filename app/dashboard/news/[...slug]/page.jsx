@@ -26,7 +26,6 @@ const Article = ({ params }) => {
   <p>Quisque sed justo ut metus placerat posuere. Integer suscipit justo vitae tortor pellentesque, id hendrerit eros commodo. Mauris et dolor sed metus congue elementum. Mauris elementum nisi sit amet est blandit tincidunt. Vestibulum condimentum mauris sed tellus dictum, sit amet dapibus nunc mattis. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Sed sollicitudin purus vel erat faucibus, sed posuere quam vestibulum. Fusce ac dolor eget felis mollis facilisis in eget purus. In hac habitasse platea dictumst. In in mauris quis eros posuere ultricies. Sed sollicitudin erat a ligula tristique auctor. Curabitur nec nisl id ex tempus dapibus. In eget odio ut nulla fermentum lacinia. Integer vel malesuada nisi. Sed tristique lorem ut sapien tincidunt, a malesuada sapien volutpat.</p>
 `;
 
-	// Call the custom hook to sanitize the HTML content
 	const sanitizedHtml = useSanitizedHtml(loremIpsum);
 
 	return (
@@ -48,9 +47,7 @@ const Article = ({ params }) => {
 					className=" size-full"
 				/>
 			</div>
-			{/* Render sanitized HTML */}
 			<article dangerouslySetInnerHTML={{ __html: sanitizedHtml }}></article>
-
 		</div>
 	);
 };

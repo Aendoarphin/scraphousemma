@@ -5,6 +5,9 @@ import { fetchAPI } from "@/scripts/util";
 
 connectToDatabase();
 
+/**
+ * Check if external api was updated.
+ */
 function isEqual(arr1, arr2) {
 	if (arr1.length !== arr2.length) return false;
 	for (let i = 0; i < arr1.length; i++) {
@@ -19,6 +22,12 @@ function isEqual(arr1, arr2) {
 	return true;
 }
 
+/**
+ * Internal endpoint for receiving all UFC fighters.
+ *
+ * Endpoint: `/api/ufc/rankings`
+ * @returns {Promise<{ message: string, content: Array<Object> | Object }>}
+ */
 export async function GET() {
 	try {
 		let responseMessage = "";

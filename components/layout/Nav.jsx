@@ -16,14 +16,12 @@ const Nav = () => {
 	const { user, isLoading } = useUser();
 	const navRef = useRef(null);
 
-	// Expand/collapse links
 	const handleMenuClick = (id = "") => {
 		if (id === "brand") {
 			setIsOpen(false);
 		} else setIsOpen(!isOpen);
 	};
 
-	// Show/hide navbar on scroll
 	useEffect(() => {
 		const handleScroll = () => {
 			const currentScrollPos = window.scrollY;

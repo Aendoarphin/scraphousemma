@@ -1,5 +1,4 @@
 "use client";
-// Icons
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
 	faCalendar,
@@ -7,9 +6,7 @@ import {
 	faTrophy,
 	faHouse,
 } from "@fortawesome/free-solid-svg-icons";
-// Next
 import Link from "next/link";
-// Hooks
 import { useState } from "react";
 
 const DashboardNav = () => {

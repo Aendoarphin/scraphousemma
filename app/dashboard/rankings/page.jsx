@@ -1,13 +1,9 @@
-// Static files
 import ufc from "@/public/logos/ufc.svg";
 import pfl from "@/public/logos/pfl.svg";
 import bellator from "@/public/logos/bellator.svg";
 import onefc from "@/public/logos/onefc.svg";
-
-// Next
 import Image from "next/image";
 import Link from "next/link";
-
 
 const Panel = (props) => {
 	const cardStyle =

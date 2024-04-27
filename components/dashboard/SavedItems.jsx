@@ -1,12 +1,8 @@
 "use client";
-// Icons
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEllipsisV } from "@fortawesome/free-solid-svg-icons";
-// Static data
 import { filterItems, savedItems } from "@/constants";
-// Next
 import Image from "next/image";
-// Hooks
 import { useState } from "react";
 import ItemFilter from "@/components/ItemFilter";
 

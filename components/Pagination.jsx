@@ -1,8 +1,3 @@
-/**
- * 
- * @param {Object} props - Component props to retrieve page count
- * @returns {JSX.Element} A JSX element that represents pagination component
- */
 const Pagination = (props) => {
 	return (
 		<>
