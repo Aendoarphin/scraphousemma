@@ -66,3 +66,18 @@ $themeTransition: all 200ms ease-in;
   text-shadow: 0px 0px 5px black;
 }
 
+.loader-animation {
+  @keyframes colorFade {
+    0% {
+      background-color: #1a1a1a;
+    }
+    50% {
+      background-color: #262626;
+    }
+    100% {
+      background-color: #1a1a1a;
+    }
+  }
+  animation: colorFade 1s ease-in infinite;
+
+}
