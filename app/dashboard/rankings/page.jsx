@@ -10,8 +10,8 @@ const Panel = (props) => {
 		"flex shadow-inner-soft cursor-pointer defaultTransition hover:scale-[102%] p-4 size-full bg-light-grey rounded-md dark:bg-dark-grey flex items-center justify-center";
 
 	return (
-		<Link href={`rankings/${props.id}`} className="flex flex-col gap-0">
-			<div id={props.id} className={cardStyle}>
+		<Link href={props.disabled ? `rankings/` : `rankings/${props.id}`} className="flex flex-col gap-0">
+			<div id={props.id} className={`${cardStyle} ${props.disabled && "opacity-50 cursor-not-allowed"}`}>
 				<Image
 					alt={props.alt}
 					height={100}
@@ -26,10 +26,10 @@ const Panel = (props) => {
 const Rankings = async () => {
 	return (
 		<div className="flex flex-col justify-center gap-4 pb-1">
-			<Panel id="ufc" alt="ufc logo" src={ufc}/>
-			<Panel id="onefc" alt="onefc logo" src={onefc} />
-			<Panel id="bellator" alt="bellator logo" src={bellator} />
-			<Panel id="pfl" alt="pfl logo" src={pfl} />
+			<Panel id="ufc" alt="ufc logo" src={ufc} />
+			<Panel id="onefc" alt="onefc logo" src={onefc} disabled={true} />
+			<Panel id="bellator" alt="bellator logo" src={bellator} disabled={true} />
+			<Panel id="pfl" alt="pfl logo" src={pfl} disabled={true} />
 		</div>
 	);
 };

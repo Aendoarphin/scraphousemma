@@ -5,13 +5,10 @@ import { fetchAPI } from "@/scripts/util";
 import { useEffect, useState } from "react";
 
 const Loader = () => {
-  const data = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
   return (
     <div className="dark:bg-dark-grey bg-light-grey rounded-md min-h-96 p-8 flex flex-col gap-4">
-      {data.map(() => (
-        <div className="dark:bg-dark-grey bg-light-grey brightness-110 w-full animate-pulse loader-animation">
-          &nbsp;
-        </div>
+      {Array.from({length: 10}, (_, i) => (
+        <div key={i} className="dark:bg-dark-grey bg-light-grey brightness-110 w-full animate-pulse loader-animation">&nbsp;</div>
       ))}
     </div>
   );
