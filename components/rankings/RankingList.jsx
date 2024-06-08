@@ -37,7 +37,7 @@ const RankingListItem = (props) => {
 			/>
 			{flag ? <ReactCountryFlag countryCode={flag} svg /> : ""}
 			<Link href={""}>
-				<p>{name}</p>
+				<p className={`${name.length > 18 ? "text-xs" : ""} sm:text-base`}>{name}</p>
 			</Link>
 			<p className="text-xs">{record}</p>
 		</li>

@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -10,13 +10,56 @@ import {
 import NewsItem from "@/components/news/NewsItem";
 import NewsGrid from "@/components/news/NewsGrid";
 import Pagination from "@/components/Pagination";
-import { sampleNewsData } from "@/constants";
+import { fetchAPI } from "@/scripts/util";
 
 const News = () => {
+	const months = {
+		1: "Jan",
+		2: "Feb",
+		3: "Mar",
+		4: "Apr",
+		5: "May",
+		6: "Jun",
+		7: "Jul",
+		8: "Aug",
+		9: "Sep",
+		10: "Oct",
+		11: "Nov",
+		12: "Dec",
+	};
 	const [currentPage, setCurrentPage] = useState(0);
-	
-	let topStories = sampleNewsData.slice(0, 3);
-	let otherStories = sampleNewsData.slice(3);
+	const [news, setnews] = useState([]);
+
+	useEffect(() => {
+		const getNewsArticles = async () => {
+			try {
+				const response = await fetchAPI("http://localhost:3000/api/news/");
+				let articleArr = response.articles.map((article) => {
+					const date = new Date(article.publishedAt);
+					let month = date.getUTCMonth() + 1;
+					let day = date.getUTCDate();
+					return {
+						source: article.source.name,
+						author: article.author,
+						title: article.title,
+						description: article.description,
+						url: article.url,
+						urlToImage: article.urlToImage,
+						publishedAt: months[month] + " " + day,
+						content: article.content,
+					};
+				});
+
+				setnews(articleArr);
+			} catch (error) {
+				console.error(error);
+			}
+		};
+		getNewsArticles();
+	}, []);
+
+	let topStories = news.slice(0, 3);
+	let otherStories = news.slice(3);
 	let groupStories = [];
 	let articleGroup = [];
 
@@ -55,19 +98,29 @@ const News = () => {
 			<NewsGrid topNews={topStories} />
 			<div className="font-heading text-xl">Other News</div>
 			<div id="news-item-list" className="flex flex-col gap-4">
-				{groupStories[currentPage].map((item, index) => (
-					<Link
-						key={index}
-						href={`news/${item.articleId}/${item.name}/${item.publishedDate}/${item.source}/${item.image}`}
-					>
-						<NewsItem
-							name={item.name}
-							publishedDate={item.publishedDate}
-							source={item.source}
-							image={item.image}
-						/>
-					</Link>
-				))}
+				{groupStories.length &&
+					groupStories[currentPage].map((item, index) => (
+						<Link
+							key={index}
+							href={{
+								pathname: "/dashboard/news/article",
+								query: {
+									index: index,
+									title: item.title,
+									publishedAt: item.publishedAt,
+									source: item.source,
+									urlToImage: item.urlToImage,
+								},
+							}}
+						>
+							<NewsItem
+								title={item.title}
+								publishedAt={item.publishedAt}
+								source={item.source}
+								urlToImage={item.urlToImage}
+							/>
+						</Link>
+					))}
 			</div>
 			<div className="flex flex-row gap-2 justify-center items-center">
 				<button onClick={() => handleArrowClick("left")}>

@@ -1,17 +1,26 @@
-import Image from "next/image"
-import Link from "next/link"
+import Image from "next/image";
+import Link from "next/link";
 
-const NewsGrid = (props) => {
-  return (
-    <>
-      <div
+const NewsGrid = ({ topNews }) => {
+	return (
+		<>
+			<div
 				id="top-news"
 				className="overflow-visible lg:min-h-[30rem] md:min-h-[24rem] sm:min-h-[20rem] min-h-[16rem] grid grid-rows-12 grid-cols-2 gap-4"
 			>
-				{props.topNews.map((item, index) => (
+				{topNews.map((item, index) => (
 					<Link
 						key={index}
-						href={`news/${item.articleId}/${item.name}/${item.publishedDate}/${item.source}/${item.image}`}
+						href={{
+							pathname: "/dashboard/news/article",
+							query: {
+								index: index,
+								title: item.title,
+								publishedAt: item.publishedAt,
+								source: item.source,
+								urlToImage: item.urlToImage,
+							},
+						}}
 						className={`shadow-inner-soft flex flex-col justify-end rounded-md p-4 ${
 							index === 0
 								? "col-start-1 row-span-full md:text-2xl"
@@ -22,18 +31,18 @@ const NewsGrid = (props) => {
 					>
 						<Image
 							alt={`top story image ${index + 1}`}
-							src={item.image}
+							src={item.urlToImage}
 							fill={true}
 							className="absolute inset-0 object-cover object-top rounded-md brightness-75"
 						/>
 						<p className="relative text-white font-heading line-clamp-3 text-shadow">
-							{item.name}
+							{item.title}
 						</p>
 					</Link>
 				))}
 			</div>
-    </>
-  )
-}
+		</>
+	);
+};
 
 export default NewsGrid;
