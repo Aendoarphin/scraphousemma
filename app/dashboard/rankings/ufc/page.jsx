@@ -8,7 +8,7 @@ const Loader = () => {
   return (
     <div className="dark:bg-dark-grey bg-light-grey rounded-md min-h-96 p-8 flex flex-col gap-4">
       {Array.from({length: 10}, (_, i) => (
-        <div key={i} className="dark:bg-dark-grey bg-light-grey brightness-110 w-full animate-pulse loader-animation">&nbsp;</div>
+        <div key={i} className="dark:bg-dark-grey dark:opacity-100 opacity-20 bg-light-grey brightness-110 w-full animate-pulse loader-animation">&nbsp;</div>
       ))}
     </div>
   );
@@ -24,11 +24,11 @@ const RankingsUfc = () => {
     const fetchData = async () => {
       try {
         const ufcRankings = await fetchAPI(
-          "http://localhost:3000/api/ufc/rankings/"
+          "http://192.168.0.156:3000/api/ufc/rankings/"
         );
         setRankingsData(ufcRankings);
         const ufcFighters = await fetchAPI(
-          "http://localhost:3000/api/ufc/fighters/"
+          "http://192.168.0.156:3000/api/ufc/fighters/"
         );
         setFightersData(ufcFighters.content);
         setLoading(false);
