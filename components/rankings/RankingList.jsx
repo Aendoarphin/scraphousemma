@@ -31,8 +31,8 @@ const RankingListItem = (props) => {
 	});
 
 	return (
-		<li className={`flex flex-row gap-4 items-center p-2 ${props.style}`}>
-			<h1 className={`font-heading w-6 text-center`}>{rank}</h1>
+		<li className={`flex flex-row gap-4 justify-start items-center p-2 ${props.style}`}>
+			<h1 className={`font-heading text-center`}>{rank}</h1>
 			<hr
 				className={`border-l border-black dark:border-white dark:border-opacity-25 border-opacity-25 h-4`}
 			/>
@@ -40,7 +40,7 @@ const RankingListItem = (props) => {
 			<Link href={""}>
 				<p className={`${name.length > 18 ? "text-xs" : ""} sm:text-base`}>{name}</p>
 			</Link>
-			<p className="text-xs">{record}</p>
+			<p className="text-xs text-nowrap">{record}</p>
 		</li>
 	);
 };

@@ -122,15 +122,17 @@ const News = () => {
 						</Link>
 					))}
 			</div>
-			<div className="flex flex-row gap-2 justify-center items-center">
+			<div className="flex gap-2 flex-row justify-center items-center">
 				<button onClick={() => handleArrowClick("left")}>
 					<FontAwesomeIcon size="xl" icon={faArrowAltCircleLeft} />
 				</button>
+				<div className="flex flex-wrap flex-row justify-center gap-2">
 				{groupStories.map((_, index) => (
 					<button key={index} onClick={() => handlePageClick(index)}>
 						<Pagination page={index + 1} onPage={currentPage + 1} />
 					</button>
 				))}
+				</div>
 				<button onClick={() => handleArrowClick("right")}>
 					<FontAwesomeIcon size="xl" icon={faArrowAltCircleRight} />
 				</button>
