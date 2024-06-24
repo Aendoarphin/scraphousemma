@@ -17,6 +17,8 @@ const NewsItem = ({ publishedAt, source, title, urlToImage }) => {
 						src={urlToImage}
 						width={500}
 						height={200}
+						quality={50}
+						priority
 						alt="news article thumbnail"
 						className="h-24 sm:h-28 md:h-32 max-w-24 sm:max-w-28 md:max-w-32 object-cover"
 					/>

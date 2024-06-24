@@ -19,6 +19,8 @@ const NewsGrid = ({ topNews }) => {
 								publishedAt: item.publishedAt,
 								source: item.source,
 								urlToImage: item.urlToImage,
+								content: item.content,
+								url: item.url,
 							},
 						}}
 						className={`shadow-inner-soft flex flex-col justify-end rounded-md p-4 ${
@@ -32,7 +34,9 @@ const NewsGrid = ({ topNews }) => {
 						<Image
 							alt={`top story image ${index + 1}`}
 							src={item.urlToImage}
-							fill={true}
+							fill
+							sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+							quality={75}
 							className="absolute inset-0 object-cover object-top rounded-md brightness-75"
 						/>
 						<p className="relative text-white font-heading line-clamp-3 text-shadow">

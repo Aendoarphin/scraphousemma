@@ -9,7 +9,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import NewsItem from "@/components/news/NewsItem";
 import NewsGrid from "@/components/news/NewsGrid";
-import Pagination from "@/components/Pagination";
+import Pagination from "@/components/news/Pagination";
 import { fetchAPI } from "@/scripts/util";
 
 const News = () => {
@@ -110,6 +110,8 @@ const News = () => {
 									publishedAt: item.publishedAt,
 									source: item.source,
 									urlToImage: item.urlToImage,
+									url: item.url,
+									content: item.content,
 								},
 							}}
 						>
@@ -126,7 +128,7 @@ const News = () => {
 				<button onClick={() => handleArrowClick("left")}>
 					<FontAwesomeIcon size="xl" icon={faArrowAltCircleLeft} />
 				</button>
-				<div className="flex flex-wrap flex-row justify-center gap-2">
+				<div className="flex flex-wrap flex-row justify-start gap-2">
 				{groupStories.map((_, index) => (
 					<button key={index} onClick={() => handlePageClick(index)}>
 						<Pagination page={index + 1} onPage={currentPage + 1} />

@@ -1,35 +1,24 @@
-import { useUser } from "@auth0/nextjs-auth0/client";
 import Link from "next/link";
 import Image from "next/image";
+import { faGear, faDoorOpen } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const User = () => {
-	const { user, error, isLoading } = useUser();
-
-	if (isLoading) return <div>Please wait...</div>
-	if (error) return <div>{error.message}</div>;
-
 	return (
-		user && <div className="defaultTransition shadow-inner-soft flex flex-col bg-light-grey dark:bg-dark-grey rounded-md p-8 w-full">
-		<Image
-			alt={user.name}
-			src={user.picture}
-			width={150}
-			height={150}
-			quality={100}
-			className="mx-auto rounded-full"
-		></Image>
-		<div className="font-heading text-center p-4">{user.name}</div>
-		<div className="flex flex-col md:flex-row gap-4 text-sm w-min mx-auto text-center">
-			<button className="text-nowrap border dark:border-white border-black p-2 rounded-md">
-				Account Settings
-			</button>
-			<Link href={"/api/auth/logout"}>
-				<button className="text-nowrap border dark:border-white border-black p-2 rounded-md w-full">
-					Logout
+		<div className="defaultTransition shadow-inner-soft h-full rounded-md bg-light-grey dark:bg-dark-grey">
+			<div className="flex flex-row text-sm w-full text-center">
+				<button className="w-full text-nowrap hover:bg-black hover:text-white hover:dark:bg-white hover:rounded-l-md hover:dark:text-black p-4 defaultTransition text-xl">
+					<FontAwesomeIcon icon={faGear} />
+					<p className="text-base">Settings</p>
 				</button>
-			</Link>
+				<button className="w-full text-nowrap hover:bg-black hover:text-white hover:dark:bg-white hover:rounded-r-md hover:dark:text-black p-4 defaultTransition text-xl">
+					<Link href={"/api/auth/logout"}>
+						<FontAwesomeIcon icon={faDoorOpen} />
+						<p className="text-base">Logout</p>
+					</Link>
+				</button>
+			</div>
 		</div>
-	</div>
 	);
 };
 

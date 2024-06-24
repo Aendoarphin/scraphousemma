@@ -34,7 +34,7 @@ export async function GET() {
 		const dbData = await UfcRanking.find({}); // Array
 		const apiData = await fetchAPI("https://api.octagon-api.com/rankings"); // Array
 
-		if (dbData.length === 0 || !isEqual(dbData, apiData)) {
+		if (!isEqual(dbData, apiData) && apiData.length > 0) {
 			await UfcRanking.deleteMany({});
 			await UfcRanking.insertMany(apiData);
 			responseMessage = "Collection updated with API data";

@@ -7,6 +7,7 @@ const RankingListItem = (props) => {
 	let flag = "";
 	let record = "";
 
+	// Fix country flag misrepresentation
 	const flagOverrides = {
 		"Ilia Topuria": "GE",
 		"Casey O'Neill": "GB",
@@ -19,6 +20,7 @@ const RankingListItem = (props) => {
 		"Nikita Krylov": "UA",
 		"Arman Tsarukyan": "AM",
 		"Muhammad Mokaev": "GB",
+		"Shavkat Rakhmonov": "KZ",
 	};
 
 	props.info.forEach((fighter) => {
@@ -31,16 +33,16 @@ const RankingListItem = (props) => {
 	});
 
 	return (
-		<li className={`flex flex-row gap-4 justify-start items-center p-2 ${props.style}`}>
-			<h1 className={`font-heading text-center`}>{rank}</h1>
+		<li className={`flex flex-row gap-4 justify-start items-center p-2 min-h-12 max-h-12 ${props.style}`}>
+			<h1 className={`font-heading text-center min-w-6`}>{rank}</h1>
 			<hr
 				className={`border-l border-black dark:border-white dark:border-opacity-25 border-opacity-25 h-4`}
 			/>
 			{flag ? <ReactCountryFlag countryCode={flag} svg /> : ""}
 			<Link href={""}>
-				<p className={`${name.length > 18 ? "text-xs" : ""} sm:text-base`}>{name}</p>
+				<p className={`${name.length > 10 ? "text-xs" : ""} text-xs sm:text-base`}>{name}</p>
 			</Link>
-			<p className="text-xs text-nowrap">{record}</p>
+			<p className="text-xs text-nowrap ml-auto sm:mx-0 opacity-50">{record}</p>
 		</li>
 	);
 };

@@ -15,9 +15,11 @@ const Panel = (props) => {
 				<Image
 					alt={props.alt}
 					height={100}
+					priority
 					src={props.src}
 					className="invert dark:invert-0 ease-in transition-all"
 				/>
+				
 			</div>
 		</Link>
 	);

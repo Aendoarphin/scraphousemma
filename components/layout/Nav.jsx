@@ -114,6 +114,7 @@ const Nav = () => {
 								<Image
 									alt={user.name}
 									fill
+									sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
 									src={user.picture}
 									className="object-scale-down max-w-10 max-h-10 rounded-full"
 								></Image>
