@@ -4,21 +4,10 @@ import RankingList from "@/components/rankings/RankingList";
 import { fetchAPI } from "@/scripts/util";
 import { useEffect, useState } from "react";
 
-const Loader = () => {
-  return (
-    <div className="dark:bg-dark-grey bg-light-grey rounded-md min-h-96 p-8 flex flex-col gap-4">
-      {Array.from({length: 10}, (_, i) => (
-        <div key={i} className="dark:bg-dark-grey dark:opacity-100 opacity-20 bg-light-grey brightness-110 w-full animate-pulse loader-animation">&nbsp;</div>
-      ))}
-    </div>
-  );
-};
-
 const RankingsUfc = () => {
   const [rankingsData, setRankingsData] = useState([]);
   const [filter, setFilter] = useState("Men's Pound-for-Pound Top Rank");
   const [fightersData, setFightersData] = useState([]);
-  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -31,7 +20,6 @@ const RankingsUfc = () => {
           "http://192.168.0.156:3000/api/ufc/fighters/"
         );
         setFightersData(ufcFighters.content);
-        setLoading(false);
       } catch (error) {
         console.error("Error fetching data:", error);
       }
@@ -76,8 +64,7 @@ const RankingsUfc = () => {
           initialValue={filter}
         />
       </div>
-      {!loading ? (
-        rankingsData.content &&
+      {rankingsData.content &&
         rankingsData.content.length > 0 &&
         fightersData.length > 0 &&
         rankingsData.content.map((item, index) => (
@@ -92,10 +79,7 @@ const RankingsUfc = () => {
               fighterInfo={resolvedFighterData}
             />
           </div>
-        ))
-      ) : (
-        <Loader />
-      )}
+        ))}
     </div>
   );
 };

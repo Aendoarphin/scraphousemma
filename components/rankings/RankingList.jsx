@@ -15,6 +15,7 @@ const RankingListItem = (props) => {
 		"Beneil Dariush": "US",
 		"Khamzat Chimaev": "RU",
 		"Jiří Procházka ": "CZ",
+		"David Dvorak": "CZ",
 		"Serghei Spivac": "UA",
 		"Alexandr Romanov": "MD",
 		"Nikita Krylov": "UA",

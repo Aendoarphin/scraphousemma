@@ -3,7 +3,7 @@ import Image from "next/image";
 import { faGear, faDoorOpen } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-const User = () => {
+const DashboardOptions = () => {
 	return (
 		<div className="defaultTransition shadow-inner-soft h-full rounded-md bg-light-grey dark:bg-dark-grey">
 			<div className="flex flex-row text-sm w-full text-center">
@@ -22,4 +22,4 @@ const User = () => {
 	);
 };
 
-export default User;
+export default DashboardOptions;
