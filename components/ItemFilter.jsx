@@ -57,7 +57,7 @@ const ItemFilter = (props) => {
 				</div>
 			</button>
 			{filterIsOpen && (
-				<div className=" absolute flex flex-col gap-2 p-2 bg-light-grey dark:bg-dark-grey rounded-md dark:shadow-black shadow-inner-soft translate-y-14">
+				<div className=" z-10 absolute flex flex-col gap-2 p-2 bg-light-grey dark:bg-dark-grey rounded-md dark:shadow-black shadow-inner-soft translate-y-14">
 					{Object.keys(props.filterItems).map((key) => (
 						<button
 							key={key}
