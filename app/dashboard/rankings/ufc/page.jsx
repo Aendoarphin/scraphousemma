@@ -13,11 +13,11 @@ const RankingsUfc = () => {
     const fetchData = async () => {
       try {
         const ufcRankings = await fetchAPI(
-          "http://192.168.0.156:3000/api/ufc/rankings/"
+          `http://${process.env.HOST}:3000/api/ufc/rankings/`
         );
         setRankingsData(ufcRankings);
         const ufcFighters = await fetchAPI(
-          "http://192.168.0.156:3000/api/ufc/fighters/"
+          `http://${process.env.HOST}:3000/api/ufc/fighters/`
         );
         setFightersData(ufcFighters.content);
       } catch (error) {

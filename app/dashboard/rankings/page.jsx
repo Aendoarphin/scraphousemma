@@ -1,6 +1,5 @@
 import ufc from "@/public/logos/ufc.svg";
 import pfl from "@/public/logos/pfl.svg";
-import bellator from "@/public/logos/bellator.svg";
 import onefc from "@/public/logos/onefc.svg";
 import Image from "next/image";
 import Link from "next/link";
@@ -30,7 +29,6 @@ const Rankings = async () => {
 		<div className="flex flex-col justify-center gap-4 pb-1">
 			<Panel id="ufc" alt="ufc logo" src={ufc} />
 			<Panel id="onefc" alt="onefc logo" src={onefc} disabled={true} />
-			<Panel id="bellator" alt="bellator logo" src={bellator} disabled={true} />
 			<Panel id="pfl" alt="pfl logo" src={pfl} disabled={true} />
 		</div>
 	);

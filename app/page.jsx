@@ -12,7 +12,6 @@ import Button from "@/components/Button";
 // Static files
 import ufc from "@/public/logos/ufc.svg";
 import pfl from "@/public/logos/pfl.svg";
-import bellator from "@/public/logos/bellator.svg";
 import onefc from "@/public/logos/onefc.svg";
 
 const Feature = ({ icon, text }) => {
@@ -67,7 +66,7 @@ const Home = () => {
 					className: "bghome2",
 					title: "Promotions",
 					content: "Get information from the most popular MMA fight promotions",
-					promotions: [ufc, pfl, bellator, onefc].map((src, index) => (
+					promotions: [ufc, pfl, onefc].map((src, index) => (
 						<Promotion key={index} alt={`promotion logo ${index}`} src={src} />
 					)),
 				},

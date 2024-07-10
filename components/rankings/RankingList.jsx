@@ -1,9 +1,9 @@
 import Link from "next/link";
 import ReactCountryFlag from "react-country-flag";
 
-const RankingListItem = (props) => {
-	let rank = props.rank === "🏆" ? "🏆" : props.rank + 1;
-	let name = props.fighterName;
+const RankingListItem = ({ rank, fighterName, info, style }) => {
+	let fighterRank = rank === "🏆" ? "🏆" : rank + 1;
+	let name = fighterName;
 	let flag = "";
 	let record = "";
 
@@ -24,7 +24,7 @@ const RankingListItem = (props) => {
 		"Shavkat Rakhmonov": "KZ",
 	};
 
-	props.info.forEach((fighter) => {
+	info.forEach((fighter) => {
 		if (fighter.name.trim() === name.trim()) {
 			flag = flagOverrides.hasOwnProperty(fighter.name)
 				? flagOverrides[fighter.name]
@@ -34,8 +34,8 @@ const RankingListItem = (props) => {
 	});
 
 	return (
-		<li className={`flex flex-row gap-4 justify-start items-center p-2 min-h-12 max-h-12 ${props.style}`}>
-			<h1 className={`font-heading text-center min-w-6`}>{rank}</h1>
+		<li className={`flex flex-row gap-4 justify-start items-center p-2 min-h-12 max-h-12 ${style}`}>
+			<h1 className={`font-heading text-center min-w-6`}>{fighterRank}</h1>
 			<hr
 				className={`border-l border-black dark:border-white dark:border-opacity-25 border-opacity-25 h-4`}
 			/>
@@ -48,23 +48,23 @@ const RankingListItem = (props) => {
 	);
 };
 
-const RankingList = (props) => {
+const RankingList = ({ division, fighters, championName, fighterInfo }) => {
 	return (
 		<ul className="shadow-inner-soft bg-light-grey dark:bg-dark-grey p-8 rounded-md defaultTransition">
-			<h1 className="font-heading">{props.division}</h1>
-			{props.fighters.map((fighter, index) => {
+			<h1 className="font-heading">{division}</h1>
+			{fighters.map((fighter, index) => {
 				return (
 					<div
 						key={index}
 						className="border-b border-black dark:border-white dark:border-opacity-25 border-opacity-25 last:border-none"
 					>
 						{index === 0 &&
-						props.division !== "Men's Pound-for-Pound Top Rank" &&
-						props.division !== "Women's Pound-for-Pound Top Rank" ? (
+						division !== "Men's Pound-for-Pound Top Rank" &&
+						division !== "Women's Pound-for-Pound Top Rank" ? (
 							<RankingListItem
 								rank={"🏆"}
-								fighterName={props.championName}
-								info={props.fighterInfo}
+								fighterName={championName}
+								info={fighterInfo}
 								style={
 									"font-heading border-b border-black dark:border-white dark:border-opacity-25 border-opacity-25"
 								}
@@ -73,7 +73,7 @@ const RankingList = (props) => {
 						<RankingListItem
 							rank={index}
 							fighterName={fighter.name}
-							info={props.fighterInfo}
+							info={fighterInfo}
 						/>
 					</div>
 				);
