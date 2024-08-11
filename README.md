@@ -52,4 +52,4 @@ More exciting features will be considered in the future. Please feel free to con
 
 4. Schedule
     - Alerts
-    - Event listings ✅
+    - Event listings
