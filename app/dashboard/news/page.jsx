@@ -33,7 +33,7 @@ const News = () => {
 	useEffect(() => {
 		const getNewsArticles = async () => {
 			try {
-				const response = await fetchAPI(`http://${process.env.HOST}:3000/api/news/`, "get");
+				const response = await fetchAPI(`https://${process.env.HOST}/api/news/`, "get");
 				let articleArr = response.articles.map((article) => {
 					const date = new Date(article.publishedAt);
 					let month = date.getUTCMonth() + 1;
