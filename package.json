@@ -10,6 +10,7 @@
     "test": "jest"
   },
   "dependencies": {
+    "@api/sportradar-mma": "file:.api/apis/sportradar-mma",
     "@auth0/nextjs-auth0": "^3.5.0",
     "@fortawesome/fontawesome-svg-core": "^6.5.1",
     "@fortawesome/free-brands-svg-icons": "^6.5.1",
@@ -32,6 +33,7 @@
     "react": "^18",
     "react-country-flag": "^3.1.0",
     "react-dom": "^18",
+    "request": "^2.88.2",
     "sass": "^1.70.0"
   },
   "devDependencies": {

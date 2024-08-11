@@ -1,7 +1,6 @@
 const Loading = () => {
   return (
-    <div className="mx-auto">
-      Loading...
+    <div className="spinner mx-auto">
     </div>
   );
 };

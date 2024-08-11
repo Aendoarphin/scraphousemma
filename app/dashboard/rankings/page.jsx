@@ -1,24 +1,27 @@
 import ufc from "@/public/logos/ufc.svg";
 import pfl from "@/public/logos/pfl.svg";
 import onefc from "@/public/logos/onefc.svg";
+import panelUfc from "@/public/images/panel-bg-ufc.png";
+import panelPfl from "@/public/images/panel-bg-pfl.png";
+import panelOne from "@/public/images/panel-bg-one.png";
 import Image from "next/image";
 import Link from "next/link";
 
-const Panel = (props) => {
+const Panel = ({league, disabled, alt, src, bg}) => {
 	const cardStyle =
-		"flex shadow-inner-soft cursor-pointer defaultTransition hover:scale-[102%] p-4 size-full bg-light-grey rounded-md dark:bg-dark-grey flex items-center justify-center";
+		"overflow-clip flex shadow-inner-soft transition-all ease-in-out duration-300 h-[20vh] lg:h-[30vh] p-4 bg-light-grey rounded-md dark:bg-dark-grey flex items-center justify-center brightness-50 hover:brightness-100";
 
 	return (
-		<Link href={props.disabled ? `rankings/` : `rankings/${props.id}`} className="flex flex-col gap-0">
-			<div id={props.id} className={`${cardStyle} ${props.disabled && "opacity-50 cursor-not-allowed"}`}>
+		<Link href={disabled ? `rankings/` : `rankings/${league}`} className={`flex flex-col gap-0 ${disabled ? " cursor-not-allowed" : ""}`}>
+			<div id={league} style={{ backgroundSize: "cover", backgroundPosition: "center", backgroundRepeat: "no-repeat", backgroundImage: `url(${bg.src})`}} className={`${cardStyle}`}>
 				<Image
-					alt={props.alt}
+					alt={alt}
 					height={100}
-					priority
-					src={props.src}
-					className="invert dark:invert-0 ease-in transition-all"
+					src={src}
+					className="invert dark:invert-0 ease-in transition-all lg:size-[60%] xl:size-[80%]"
+					loading="eager"
 				/>
-				
+				{disabled && <div className="size-4 bg-main absolute bottom-0 w-full h-20 left-40 -translate-y-3 -rotate-45 text-center bg-opacity-50"><p className="font-heading mt-6 text-2xl">TBD</p></div>}
 			</div>
 		</Link>
 	);
@@ -26,10 +29,10 @@ const Panel = (props) => {
 
 const Rankings = async () => {
 	return (
-		<div className="flex flex-col justify-center gap-4 pb-1">
-			<Panel id="ufc" alt="ufc logo" src={ufc} />
-			<Panel id="onefc" alt="onefc logo" src={onefc} disabled={true} />
-			<Panel id="pfl" alt="pfl logo" src={pfl} disabled={true} />
+		<div className="flex flex-col justify-center gap-4 pb-1 group:">
+			<Panel league="ufc" alt="ufc logo" src={ufc} bg={panelUfc}  />
+			<Panel league="onefc" alt="onefc logo" src={onefc} bg={panelOne} disabled={true} />
+			<Panel league="pfl" alt="pfl logo" src={pfl} bg={panelPfl} disabled={true} />
 		</div>
 	);
 };

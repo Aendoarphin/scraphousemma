@@ -3,7 +3,6 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import DOMPurify from "dompurify";
-import { fetchAPI } from "@/scripts/util";
 
 const useSanitizedHtml = (htmlContent) => {
 	const [sanitizedHtml, setSanitizedHtml] = useState("");

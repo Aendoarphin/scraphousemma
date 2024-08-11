@@ -13,7 +13,7 @@ export async function GET() {
 		};
 
 		const response = await fetchAPI(
-			`https://newsapi.org/v2/${options.endpoint}?q=${options.q}&pageSize=${options.pageSize}&language=${options.language}&sortBy=${options.sortBy}&apiKey=${process.env.NEWS_API_KEY}`
+			`https://newsapi.org/v2/${options.endpoint}?q=${options.q}&pageSize=${options.pageSize}&language=${options.language}&sortBy=${options.sortBy}&apiKey=${process.env.NEWS_API_KEY}`, "get"
 		);
 
 		return NextResponse.json(response);

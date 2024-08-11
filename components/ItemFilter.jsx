@@ -6,10 +6,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useState, useEffect, useRef } from "react";
 
 /**
- * A button to filter saved items.
- * @param {Object} props - The props object containing the component's properties.
- * @param {string} props.initialValue - The default value to display on the button.
- * @returns {JSX.Element} A JSX element representing the filter button.
+ * A dropdown to filter items.
  */
 const ItemFilter = (props) => {
 	const [currentFilterValue, setCurrentFilterValue] = useState(
@@ -48,6 +45,7 @@ const ItemFilter = (props) => {
 			<button
 				className="self-center p-2 rounded-md bg-light-grey dark:bg-dark-grey shadow-inner-soft defaultTransition"
 				onClick={handleFilterClick}
+				title={props.toolTip}
 			>
 				<div
 					id="current-value"

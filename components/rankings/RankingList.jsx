@@ -15,13 +15,14 @@ const RankingListItem = ({ rank, fighterName, info, style }) => {
 		"Beneil Dariush": "US",
 		"Khamzat Chimaev": "RU",
 		"Jiří Procházka ": "CZ",
-		"David Dvorak": "CZ",
+		"David Dvorak": "CZ'",
 		"Serghei Spivac": "UA",
 		"Alexandr Romanov": "MD",
 		"Nikita Krylov": "UA",
 		"Arman Tsarukyan": "AM",
 		"Muhammad Mokaev": "GB",
 		"Shavkat Rakhmonov": "KZ",
+		"Belal Muhammad": "PS"
 	};
 
 	info.forEach((fighter) => {

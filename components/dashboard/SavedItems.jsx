@@ -15,8 +15,8 @@ const SavedItems = () => {
 	};
 
 	return (
-		<div className="flex flex-col min-w-80 w-full mb-8">
-			<div className="flex justify-between sticky top-0 defaultTransition">
+		<div className="flex flex-col min-w-80 w-full mb-4">
+			<div className="flex justify-between defaultTransition items-center">
 				<h1 className="py-4 font-heading">Your Saved Items</h1>
 				<div className="flex flex-row justify-end">
 					<ItemFilter
@@ -26,9 +26,9 @@ const SavedItems = () => {
 					/>
 				</div>
 			</div>
-			<div className=" h-96">
+			<div className="">
 				{hasSavedItems ? (
-					<div className="defaultTransition shadow-inner-soft h-full overflow-y-scroll rounded-md bg-light-grey dark:bg-dark-grey p-4">
+					<div className="defaultTransition shadow-inner-soft h-full rounded-md bg-light-grey dark:bg-dark-grey p-4">
 						{savedItems.items.map((item, index) => {
 							const isFighterWithImage = item.type === "fighter" && item.image;
 							return (
@@ -68,7 +68,7 @@ const SavedItems = () => {
 										</div>
 									</div>
 									<button className="px-4">
-										<FontAwesomeIcon icon={faEllipsisV} />
+										<FontAwesomeIcon icon={faEllipsisV} size="lg"/>
 									</button>
 								</div>
 							);

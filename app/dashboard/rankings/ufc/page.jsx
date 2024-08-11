@@ -13,11 +13,11 @@ const RankingsUfc = () => {
     const fetchData = async () => {
       try {
         const ufcRankings = await fetchAPI(
-          `http://${process.env.HOST}:3000/api/ufc/rankings/`
+          `http://${process.env.HOST}:3000/api/ufc/rankings/`, "get"
         );
         setRankingsData(ufcRankings);
         const ufcFighters = await fetchAPI(
-          `http://${process.env.HOST}:3000/api/ufc/fighters/`
+          `http://${process.env.HOST}:3000/api/ufc/fighters/`, "get"
         );
         setFightersData(ufcFighters.content);
       } catch (error) {
@@ -33,7 +33,7 @@ const RankingsUfc = () => {
       !rankingsData.content ||
       !Array.isArray(rankingsData.content)
     ) {
-      return ["Loading..."];
+      return <div className="spinner mx-auto"></div>;
     }
 
     const categoryNames = rankingsData.content
@@ -64,7 +64,7 @@ const RankingsUfc = () => {
           initialValue={filter}
         />
       </div>
-      {rankingsData.content &&
+      {rankingsData.content ?
         rankingsData.content.length > 0 &&
         fightersData.length > 0 &&
         rankingsData.content.map((item, index) => (
@@ -79,7 +79,7 @@ const RankingsUfc = () => {
               fighterInfo={resolvedFighterData}
             />
           </div>
-        ))}
+        )) : <div className="spinner mx-auto"></div>}
     </div>
   );
 };

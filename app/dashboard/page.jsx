@@ -5,7 +5,7 @@ import DashboardOptions from "@/components/dashboard/DashboardOptions";
 
 const DashboardHome = () => {
 
-	const { user, isLoading } = useUser();
+	const { isLoading } = useUser();
 
 	return (
 		<>
