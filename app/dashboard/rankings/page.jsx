@@ -18,10 +18,10 @@ const Panel = ({league, disabled, alt, src, bg}) => {
 					alt={alt}
 					height={100}
 					src={src}
-					className="invert dark:invert-0 ease-in transition-all lg:size-[60%] xl:size-[80%]"
+					className=" ease-in transition-all lg:size-[60%] xl:size-[80%]"
 					loading="eager"
 				/>
-				{disabled && <div className="size-4 bg-main absolute bottom-0 w-full h-20 left-40 -translate-y-3 -rotate-45 text-center bg-opacity-50"><p className="font-heading mt-6 text-2xl">TBD</p></div>}
+				{disabled && <p className="text-white font-heading text-2xl absolute bottom-10 bg-main w-full text-center bg-opacity-50">TBD</p>}
 			</div>
 		</Link>
 	);
