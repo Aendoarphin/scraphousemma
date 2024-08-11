@@ -14,9 +14,7 @@ More exciting features will be considered in the future. Please feel free to con
 2. Create a project named "scraphouse"
 3. Create a cluster named "scraphouse"
 4. Create a database named "scraphouse"
-5. Copy URI connection string by navigating to:
-
-   Databases > Connect > Drivers
+5. Copy URI connection string by navigating to Databases > Connect > Drivers
    ![alt text](image-1.png)
 
 6. Copy and paste the connection string into the relevant field in the provided .env file
