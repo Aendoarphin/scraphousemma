@@ -24,7 +24,6 @@ async function updateDatabaseWithAPIData() {
 			"https://api.octagon-api.com/rankings",
 			"get"
 		);
-		let responseMessage = "";
 		if (apiData && apiData.length > 0) {
 			await UfcRanking.deleteMany({});
 			await UfcRanking.insertMany(apiData);
