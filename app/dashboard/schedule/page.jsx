@@ -3,14 +3,23 @@ import { fetchAPI } from "@/scripts/util";
 import { useState, useEffect } from "react";
 import ItemFilter from "@/components/ItemFilter";
 import Link from "next/link";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCalendar, faMapPin } from "@fortawesome/free-solid-svg-icons";
 
 const EventItem = ({ eventData }) => {
 	return (
-		<div className="flex flex-col">
-			<Link href={``}><h1 className="font-heading">{eventData.name}</h1></Link>
-			<div className="text-sm">
-				<p>{eventData.location}</p>
-				<p>
+		<div className="flex flex-col dark:bg-dark-grey bg-light-grey text-nowrap max-w-full rounded-md shadow-inner-soft">
+			<div className="bg-main p-4 font-heading text-white rounded-t-md text-nowrap">
+				<p className="text-lg">{eventData.name.split(" - ")[0]}</p>
+				<p className="text-2xl">{eventData.name.split(" - ")[1]}</p>
+			</div>
+			<div className="text-sm p-4">
+				<p className="flex items-center gap-1 text-nowrap">
+					<FontAwesomeIcon icon={faMapPin} className="w-4" />
+					<span className="truncate">{eventData.location}</span>
+				</p>
+				<p className="flex items-center gap-1">
+					<FontAwesomeIcon icon={faCalendar} className="w-4" />
 					{eventData.month} {eventData.day}, {eventData.year}
 				</p>
 			</div>
@@ -60,14 +69,18 @@ const Schedule = () => {
 					initialValue={filter}
 				/>
 			</div>
-			<div className="shadow-inner-soft bg-light-grey dark:bg-dark-grey p-8 rounded-md defaultTransition flex flex-col gap-4">
+			<div className="defaultTransition flex flex-wrap gap-4">
 				{data ? (
 					data.map((event) => {
-						if ((filter === "upcoming" && event.eventStatus === "upcoming") ||
-								(filter === "past" && event.eventStatus === "past")) {
+						if (
+							(filter === "upcoming" && event.eventStatus === "upcoming") ||
+							(filter === "past" && event.eventStatus === "past")
+						) {
 							return (
-								<div key={event.name} className="border-b dark:border-white dark:border-opacity-25 border-black border-opacity-25 last-of-type:border-none pb-4">
-									<EventItem eventData={event} />
+								<div key={event.name} className="flex-1 max-w-full">
+									<Link href={`/dashboard/schedule/${event.id}`}>
+										<EventItem eventData={event} />
+									</Link>
 								</div>
 							);
 						}
