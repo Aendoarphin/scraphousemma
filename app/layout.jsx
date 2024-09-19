@@ -23,6 +23,9 @@ const poppins = Poppins({ weight: "300", subsets: ["latin"] });
 export default function RootLayout({ children }) {
 	return (
 		<html lang="en" suppressHydrationWarning>
+			<head>
+				<link rel="icon" href="/logos/scraphouse.ico" />
+			</head>
 			<UserProvider>
 				<body
 					className={`flex flex-col justify-between min-h-screen ${
