@@ -11,7 +11,7 @@ const EventItem = ({ eventData }) => {
 		<div className="flex flex-col dark:bg-dark-grey bg-light-grey text-nowrap max-w-full rounded-md shadow-inner-soft">
 			<div className="bg-main p-4 font-heading text-white rounded-t-md text-nowrap">
 				<p className="text-lg">{eventData.name.split(" - ")[0]}</p>
-				<p className="text-2xl">{eventData.name.split(" - ")[1]}</p>
+				<p className="text-2xl text-wrap sm:text-nowrap">{eventData.name.split(" - ")[1]}</p>
 			</div>
 			<div className="text-sm p-4">
 				<p className="flex items-center gap-1 text-nowrap">
