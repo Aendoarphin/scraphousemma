@@ -60,10 +60,16 @@ export async function GET() {
 			responseMessage = "API and DB data are empty";
 		}
 
-		return NextResponse.json(
+		// Set Cache-Control header to no-store to avoid caching 10/13/24
+		const response = NextResponse.json(
 			{ message: responseMessage, content: responseData },
 			{ status: 200 }
 		);
+
+		// Disable caching by setting cache control headers; 10/13/24
+		response.headers.set("Cache-Control", "no-store");
+
+		return response;
 	} catch (error) {
 		console.error(error, error.message);
 		return NextResponse.json({ message: error.message }, { status: 500 });
