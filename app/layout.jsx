@@ -5,7 +5,6 @@ import { Poppins } from "next/font/google";
 import "./globals.scss";
 // Providers
 import { Providers } from "./providers";
-import { UserProvider } from "@auth0/nextjs-auth0/client";
 // Components
 import Nav from "@/components/layout/Nav";
 import Footer from "@/components/layout/Footer";
@@ -26,20 +25,18 @@ export default function RootLayout({ children }) {
 			<head>
 				<link rel="icon" href="/logos/scraphouse.ico" />
 			</head>
-			<UserProvider>
-				<body
-					className={`flex flex-col justify-between min-h-screen ${
-						["/", "/about"].includes(usePathname()) ? "h-screen" : ""
-					} ${poppins.className}
+			<body
+				className={`flex flex-col justify-between min-h-screen ${
+					["/", "/about"].includes(usePathname()) ? "h-screen" : ""
+				} ${poppins.className}
 `}
-				>
-					<Providers>
-						<Nav />
-						<main>{children}</main>
-						<Footer />
-					</Providers>
-				</body>
-			</UserProvider>
+			>
+				<Providers>
+					<Nav />
+					<main>{children}</main>
+					<Footer />
+				</Providers>
+			</body>
 		</html>
 	);
 }

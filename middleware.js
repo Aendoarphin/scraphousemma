@@ -1,7 +1,5 @@
-import { withMiddlewareAuthRequired } from '@auth0/nextjs-auth0/edge';
+const logMessage = (req, res, next) => {
+  console.log("Middleware OK")
+}
 
-export default withMiddlewareAuthRequired();
-
-export const config = {
-  matcher: ['/dashboard/', '/dashboard/news', '/dashboard/rankings', '/dashboard/schedule',]
-};
+export default logMessage
