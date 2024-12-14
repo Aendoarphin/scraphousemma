@@ -13,6 +13,7 @@ const ToggleSwitch = ({ isOn, handleToggle }) => {
 };
 
 const UserSettings = () => {
+	const [enabled, setEnabled] = useState(false);
 	const [isOnEvents, setIsOnEvents] = useState(false);
 	const [isOnFighters, setIsOnFighters] = useState(false);
 
@@ -58,8 +59,6 @@ const UserSettings = () => {
 					</div>
 				</div>
 			</div>
-			<p className="text-xs italic">ALL FEATURES ON THIS PAGE ARE STILL IN DEVELOPMENT</p>
-			<div className="borderp-4 flex flex-col gap-4 rounded-md"></div>
 			<div id="settings-confirm" className="flex flex-row gap-4 justify-end">
 				<button className="defaultTransition flex bg-light-grey dark:bg-dark-grey text-black dark:text-white w-min p-2 px-4 rounded-lg brightness-50">
 					Cancel

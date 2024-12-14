@@ -2,18 +2,15 @@
 import { useState, useEffect, useRef } from "react";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faUser, faBars, faClose } from "@fortawesome/free-solid-svg-icons";
+import { faBars, faClose } from "@fortawesome/free-solid-svg-icons";
 import ThemeSwitch from "../util/ThemeSwitch";
 import Link from "next/link";
-import Image from "next/image";
-import { useUser } from "@auth0/nextjs-auth0/client";
 
 const Nav = () => {
 	const [isOpen, setIsOpen] = useState(false);
 	const [visible, setVisible] = useState(true);
 	const [prevScrollPos, setPrevScrollPos] = useState(0);
 
-	const { user, isLoading } = useUser();
 	const navRef = useRef(null);
 
 	const handleMenuClick = (id = "") => {
@@ -83,7 +80,7 @@ const Nav = () => {
 						<div className="flex flex-row justify-end w-full overflow-hidden">
 							<>
 								<Link
-									href={user && !isLoading ? "/dashboard" : "/api/auth/login"}
+									href={"/dashboard"}
 									className="p-4 hover:underline defaultTransition"
 									onClick={handleMenuClick}
 								>
@@ -105,23 +102,6 @@ const Nav = () => {
 							onClick={handleMenuClick}
 							className="hover:cursor-pointer"
 						/>
-						<Link
-							id="account"
-							href={user && !isLoading ? "/dashboard" : "/api/auth/login"}
-							className="min-w-7 min-h-7 relative flex items-center justify-center"
-						>
-							{user ? (
-								<Image
-									alt={user.name}
-									fill
-									sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-									src={user.picture}
-									className="object-scale-down max-w-10 max-h-10 rounded-full"
-								></Image>
-							) : (
-								<FontAwesomeIcon icon={faUser} />
-							)}
-						</Link>
 						<ThemeSwitch />
 					</div>
 				</div>

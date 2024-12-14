@@ -33,7 +33,10 @@ const News = () => {
 	useEffect(() => {
 		const getNewsArticles = async () => {
 			try {
-				const response = await fetchAPI(`https://${process.env.HOST}/api/news/`, "get");
+				const response = await fetchAPI(
+					`https://${process.env.HOST}/api/news/`,
+					"get"
+				);
 				let articleArr = response.articles.map((article) => {
 					const date = new Date(article.publishedAt);
 					let month = date.getUTCMonth() + 1;
@@ -90,16 +93,16 @@ const News = () => {
 		}
 	};
 
-	return (
-		<div className="flex flex-col gap-4">
-			<div className="font-heading col-span-2 text-xl">
-				<FontAwesomeIcon icon={faFireAlt} /> Top News
-			</div>
-			{topStories.length > 0 ? (<NewsGrid topNews={topStories} />) : <div className="spinner mx-auto"></div>}
-			<div className="font-heading text-xl">Other News</div>
-			<div id="news-item-list" className="flex flex-col gap-4">
-				{groupStories.length > 0 ?
-					groupStories[currentPage].map((item, index) => (
+	if (groupStories.length > 0 && topStories.length > 0) {
+		return (
+			<div className="flex flex-col gap-4">
+				<div className="font-heading col-span-2 text-xl">
+					<FontAwesomeIcon icon={faFireAlt} /> Top News
+				</div>
+				<NewsGrid topNews={topStories} />
+				<div className="font-heading text-xl">Other News</div>
+				<div id="news-item-list" className="flex flex-col gap-4">
+					{groupStories[currentPage].map((item, index) => (
 						<Link
 							key={index}
 							href={{
@@ -122,25 +125,28 @@ const News = () => {
 								urlToImage={item.urlToImage}
 							/>
 						</Link>
-					)) : <div className="spinner mx-auto"></div>}
-			</div>
-			<div className="flex gap-2 flex-row justify-center items-center">
-				<button onClick={() => handleArrowClick("left")}>
-					<FontAwesomeIcon size="xl" icon={faArrowAltCircleLeft} />
-				</button>
-				<div className="flex flex-wrap flex-row justify-start gap-2">
-				{groupStories.map((_, index) => (
-					<button key={index} onClick={() => handlePageClick(index)}>
-						<Pagination page={index + 1} onPage={currentPage + 1} />
-					</button>
-				))}
+					))}
 				</div>
-				<button onClick={() => handleArrowClick("right")}>
-					<FontAwesomeIcon size="xl" icon={faArrowAltCircleRight} />
-				</button>
+				<div className="flex gap-2 flex-row justify-center items-center">
+					<button onClick={() => handleArrowClick("left")}>
+						<FontAwesomeIcon size="xl" icon={faArrowAltCircleLeft} />
+					</button>
+					<div className="flex flex-wrap flex-row justify-start gap-2">
+						{groupStories.map((_, index) => (
+							<button key={index} onClick={() => handlePageClick(index)}>
+								<Pagination page={index + 1} onPage={currentPage + 1} />
+							</button>
+						))}
+					</div>
+					<button onClick={() => handleArrowClick("right")}>
+						<FontAwesomeIcon size="xl" icon={faArrowAltCircleRight} />
+					</button>
+				</div>
 			</div>
-		</div>
-	);
+		);
+	} else {
+		return <div className="spinner mx-auto my-96"></div>;
+	}
 };
 
 export default News;

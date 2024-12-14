@@ -12,12 +12,6 @@ const DashboardOptions = () => {
 						<p className="text-base">Settings</p>
 					</button>
 				</Link>
-				<Link href={"/api/auth/logout"} className="w-full text-nowrap hover:bg-black hover:text-white hover:dark:bg-white rounded-r-md hover:dark:text-black p-4 defaultTransition text-xl">
-					<button >
-						<FontAwesomeIcon icon={faDoorOpen} />
-						<p className="text-base">Logout</p>
-					</button>
-				</Link>
 			</div>
 		</div>
 	);
